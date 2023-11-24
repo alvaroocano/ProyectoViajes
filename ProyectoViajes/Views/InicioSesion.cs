@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoViajes.Controls;
 
 namespace ProyectoViajes
 {
@@ -17,29 +18,28 @@ namespace ProyectoViajes
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        ControladorInicioSesion cis = new ControladorInicioSesion();
+
+
+        private void lblRegistro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Hide();
+            cis.redirigirRegistro();
+            
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void InicioSesion_Load(object sender, EventArgs e)
         {
-
+            cis.cargarUsuarios();
+            cis.escribirXML();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        int contador=0;
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            cis.validarUsuario(contador,txtUsuario.Text,txtContrasena.Text,this);
+            cis.leerXML();
         }
     }
 }

@@ -34,9 +34,9 @@
             this.groupBoxInicioSesion = new System.Windows.Forms.GroupBox();
             this.lblRegistro = new System.Windows.Forms.LinkLabel();
             this.lbl2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -71,9 +71,9 @@
             this.groupBoxInicioSesion.BackColor = System.Drawing.Color.GhostWhite;
             this.groupBoxInicioSesion.Controls.Add(this.lblRegistro);
             this.groupBoxInicioSesion.Controls.Add(this.lbl2);
-            this.groupBoxInicioSesion.Controls.Add(this.button2);
-            this.groupBoxInicioSesion.Controls.Add(this.button1);
-            this.groupBoxInicioSesion.Controls.Add(this.textBox1);
+            this.groupBoxInicioSesion.Controls.Add(this.btnCancelar);
+            this.groupBoxInicioSesion.Controls.Add(this.btnAceptar);
+            this.groupBoxInicioSesion.Controls.Add(this.txtContrasena);
             this.groupBoxInicioSesion.Controls.Add(this.label1);
             this.groupBoxInicioSesion.Controls.Add(this.lblUsuario);
             this.groupBoxInicioSesion.Controls.Add(this.txtUsuario);
@@ -84,7 +84,6 @@
             this.groupBoxInicioSesion.TabIndex = 2;
             this.groupBoxInicioSesion.TabStop = false;
             this.groupBoxInicioSesion.Text = "Iniciar Sesión";
-            this.groupBoxInicioSesion.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblRegistro
             // 
@@ -96,6 +95,7 @@
             this.lblRegistro.TabIndex = 7;
             this.lblRegistro.TabStop = true;
             this.lblRegistro.Text = "¡Registrate!";
+            this.lblRegistro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRegistro_LinkClicked);
             // 
             // lbl2
             // 
@@ -106,36 +106,36 @@
             this.lbl2.Size = new System.Drawing.Size(160, 16);
             this.lbl2.TabIndex = 6;
             this.lbl2.Text = "¿No estás registrado?";
-            this.lbl2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(166, 198);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 31);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelar.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(166, 198);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(81, 31);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAceptar
             // 
-            this.button1.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(54, 198);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 31);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAceptar.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Location = new System.Drawing.Point(54, 198);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(81, 31);
+            this.btnAceptar.TabIndex = 4;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // textBox1
+            // txtContrasena
             // 
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox1.Location = new System.Drawing.Point(135, 127);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '·';
-            this.textBox1.Size = new System.Drawing.Size(128, 32);
-            this.textBox1.TabIndex = 3;
+            this.txtContrasena.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtContrasena.Location = new System.Drawing.Point(135, 127);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '·';
+            this.txtContrasena.Size = new System.Drawing.Size(128, 32);
+            this.txtContrasena.TabIndex = 3;
             // 
             // label1
             // 
@@ -145,7 +145,6 @@
             this.label1.Size = new System.Drawing.Size(113, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Contraseña";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // lblUsuario
             // 
@@ -155,7 +154,6 @@
             this.lblUsuario.Size = new System.Drawing.Size(79, 24);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
-            this.lblUsuario.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtUsuario
             // 
@@ -164,7 +162,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(128, 32);
             this.txtUsuario.TabIndex = 0;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // InicioSesion
             // 
@@ -176,7 +173,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.nombreCompañia);
             this.Name = "InicioSesion";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inicio de Sesión";
+            this.Load += new System.EventHandler(this.InicioSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxInicioSesion.ResumeLayout(false);
             this.groupBoxInicioSesion.PerformLayout();
@@ -192,11 +191,11 @@
         private System.Windows.Forms.GroupBox groupBoxInicioSesion;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.LinkLabel lblRegistro;
     }
 }
