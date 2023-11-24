@@ -47,6 +47,9 @@ namespace ProyectoViajes.Views
             
         }
 
-        
+        private void Registro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
     }
 }

@@ -212,6 +212,7 @@
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrarse";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Registro_FormClosed);
             this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBoxInicioSesion.ResumeLayout(false);
