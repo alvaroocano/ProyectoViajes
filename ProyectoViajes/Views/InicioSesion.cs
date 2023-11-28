@@ -31,15 +31,16 @@ namespace ProyectoViajes
 
         private void InicioSesion_Load(object sender, EventArgs e)
         {
+           
             cis.cargarUsuarios();
-            cis.escribirXML();
+           
         }
 
-        int contador=0;
+        public static int contador = 0;
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cis.validarUsuario(contador,txtUsuario.Text,txtContrasena.Text,this);
-            cis.leerXML();
+            cis.validarUsuario(txtUsuario.Text,txtContrasena.Text,this);
+           
         }
     }
 }

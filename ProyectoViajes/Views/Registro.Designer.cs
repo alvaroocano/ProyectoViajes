@@ -42,6 +42,7 @@
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBoxInicioSesion.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +101,7 @@
             this.fechaNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.fechaNacimiento.Name = "fechaNacimiento";
             this.fechaNacimiento.Size = new System.Drawing.Size(128, 22);
-            this.fechaNacimiento.TabIndex = 9;
+            this.fechaNacimiento.TabIndex = 4;
             this.fechaNacimiento.Value = new System.DateTime(2023, 11, 22, 0, 0, 0, 0);
             // 
             // label3
@@ -120,7 +121,7 @@
             this.txtUsuario.MaxLength = 10;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(128, 24);
-            this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Click += new System.EventHandler(this.txtUsuario_Click);
             // 
             // label2
@@ -141,7 +142,7 @@
             this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(189, 24);
-            this.txtCorreo.TabIndex = 6;
+            this.txtCorreo.TabIndex = 3;
             this.txtCorreo.Click += new System.EventHandler(this.txtCorreo_Click);
             // 
             // btnCancelar
@@ -151,7 +152,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(205, 254);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(91, 43);
-            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -161,7 +162,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(87, 253);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(88, 43);
-            this.btnAceptar.TabIndex = 4;
+            this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -175,7 +176,7 @@
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '·';
             this.txtContrasena.Size = new System.Drawing.Size(128, 24);
-            this.txtContrasena.TabIndex = 3;
+            this.txtContrasena.TabIndex = 2;
             this.txtContrasena.Click += new System.EventHandler(this.txtContrasena_Click);
             // 
             // label1
@@ -198,6 +199,18 @@
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(628, 443);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(196, 24);
+            this.linkLabel1.TabIndex = 7;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Volver a Iniciar Sesión";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Registro
             // 
             this.AcceptButton = this.btnAceptar;
@@ -206,6 +219,7 @@
             this.BackColor = System.Drawing.Color.PowderBlue;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(847, 524);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.groupBoxInicioSesion);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -218,6 +232,7 @@
             this.groupBoxInicioSesion.ResumeLayout(false);
             this.groupBoxInicioSesion.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -236,5 +251,6 @@
         private System.Windows.Forms.DateTimePicker fechaNacimiento;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox edadError;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

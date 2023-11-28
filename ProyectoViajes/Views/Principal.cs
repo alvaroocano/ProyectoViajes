@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoViajes.Controls;
 
 namespace ProyectoViajes.Views
 {
@@ -16,5 +17,14 @@ namespace ProyectoViajes.Views
         {
             InitializeComponent();
         }
+
+        ControladorPrincipal cp = new ControladorPrincipal();
+        public bool isAdmin;
+        private void Principal_Load(object sender, EventArgs e)
+        {
+            cp.esconderMenu(menuStrip,isAdmin);
+        }
+
+        
     }
 }

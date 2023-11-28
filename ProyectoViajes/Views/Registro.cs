@@ -19,10 +19,12 @@ namespace ProyectoViajes.Views
         }
 
         ControladorRegistro cr = new ControladorRegistro();
+        InicioSesion inis = new InicioSesion();
 
         private void Registro_Load(object sender, EventArgs e)
         {
             edadError.Hide();
+            txtUsuario.Select();
         }
 
         private void txtUsuario_Click(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace ProyectoViajes.Views
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cr.validarEmpleado(txtUsuario, txtContrasena, txtCorreo, fechaNacimiento, edadError);
+            cr.validarEmpleado(txtUsuario, txtContrasena, txtCorreo, fechaNacimiento, edadError,this, inis);
 
             
         }
@@ -50,6 +52,11 @@ namespace ProyectoViajes.Views
         private void Registro_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            cr.volverAIniSes(this, inis);
         }
     }
 }

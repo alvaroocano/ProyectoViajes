@@ -14,67 +14,75 @@ namespace ProyectoViajes.Controls
     internal class ControladorInicioSesion
     {
         
-        Registro reg = new Registro();
+        
        
         public void redirigirRegistro()
         {
+            Registro reg = new Registro();
             reg.ShowDialog();
             
         }
 
         public void cargarUsuarios()
         {
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario(1,"admin", "1234","admin@admin.com",DateTime.Now));
+            List<Usuario> usuariosActuales = leerXML();
 
-        }
-
-        public void escribirXML()
-        {
-            try
+            // Verificar si el usuario "admin" ya está presente
+            if (!usuariosActuales.Any(u => u.User == "admin"))
             {
-                using (var writer = new StreamWriter("usuarios.xml"))
-                {
-                    // Do this to avoid the serializer inserting default XML namespaces.
-                    var namespaces = new XmlSerializerNamespaces();
-                    namespaces.Add(string.Empty, string.Empty);
-                    var serializer = new XmlSerializer(ListaDatosUsuarios.listaUsuarios.GetType());
-                    serializer.Serialize(writer, ListaDatosUsuarios.listaUsuarios, namespaces);
-                }
+                // Agregar al usuario "admin" si no está presente
+                usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", DateTime.Now));
             }
-            catch (Exception e) { }
+
+            // Actualizar la lista global
+            ListaDatosUsuarios.listaUsuarios = usuariosActuales;
+
         }
 
-        public void leerXML()
+
+
+        public List<Usuario> leerXML()
         {
+            string archivo;
             try
             {
                 string xml = File.ReadAllText("usuarios.xml");
+                archivo = xml;
                 using (var reader = new StringReader(xml))
                 {
                     XmlSerializer serializer = new
                     XmlSerializer(ListaDatosUsuarios.listaUsuarios.GetType());
                     ListaDatosUsuarios.listaUsuarios = (List<Usuario>)serializer.Deserialize(reader);
-                    System.Console.WriteLine(xml);
-
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine("Error leyendo xml " + e.Message);
             }
+            return ListaDatosUsuarios.listaUsuarios;
         }
 
-        public void validarUsuario(int contador, string usuario, string pass, InicioSesion inis)
+        
+        public void validarUsuario(string usuario, string pass, InicioSesion inis)
         {
-            int posicion = ListaDatosUsuarios.listaUsuarios.FindIndex(x => x.User == usuario);
-            if (posicion != -1 && ListaDatosUsuarios.listaUsuarios[posicion].Pass == pass)
+            int contador = InicioSesion.contador;
+
+            int posicion = leerXML().FindIndex(x => x.User == usuario);
+            if (posicion != -1 && leerXML()[posicion].Pass == pass)
             {
                 inis.Hide();
                 Principal pr = new Principal();
+
+                if (usuario.Equals("admin"))
+                {
+                    pr.isAdmin = true;
+                }
+
                 pr.Show();
             }
             else
             {
+                MessageBox.Show("Usuario o contraseña incorrectos");
                 contador++;
             }
 
@@ -85,6 +93,7 @@ namespace ProyectoViajes.Controls
                 contador = 0;
             }
 
+            InicioSesion.contador = contador;
         }
 
 
