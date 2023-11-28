@@ -137,12 +137,12 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(411, 40);
+            this.label1.Location = new System.Drawing.Point(426, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(510, 37);
+            this.label1.Size = new System.Drawing.Size(479, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Bienvenid@ a CelestialOdysseys";
+            this.label1.Text = "Bienvenid a CelestialOdysseys";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
