@@ -45,24 +45,24 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.tituloPuerta = new System.Windows.Forms.Label();
-            this.richTextBoxPuerta = new System.Windows.Forms.RichTextBox();
-            this.linkReservaPuerta = new System.Windows.Forms.LinkLabel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.tituloAgostini = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.linkReservaAgostini = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tituloNamek = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.linkReservaNamek = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.tituloAgostini = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.linkReservaAgostini = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.tituloPuerta = new System.Windows.Forms.Label();
+            this.richTextBoxPuerta = new System.Windows.Forms.RichTextBox();
+            this.linkReservaPuerta = new System.Windows.Forms.LinkLabel();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,15 +70,15 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -91,6 +91,7 @@
             this.menuStrip.Size = new System.Drawing.Size(1332, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
+            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
             // 
             // usuariosToolStripMenuItem
             // 
@@ -209,7 +210,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 380F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1332, 380);
             this.tableLayoutPanel2.TabIndex = 8;
             // 
@@ -241,165 +242,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1332, 173);
             this.tableLayoutPanel3.TabIndex = 9;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 379F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 581F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.pictureBox7, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.pictureBox8, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tituloPuerta, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.richTextBoxPuerta, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.linkReservaPuerta, 0, 2);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(373, 167);
-            this.tableLayoutPanel4.TabIndex = 9;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(963, 3);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(1, 26);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 2;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(473, 3);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(393, 26);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 7;
-            this.pictureBox8.TabStop = false;
-            // 
-            // tituloPuerta
-            // 
-            this.tituloPuerta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tituloPuerta.AutoSize = true;
-            this.tituloPuerta.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloPuerta.Location = new System.Drawing.Point(81, 0);
-            this.tituloPuerta.Name = "tituloPuerta";
-            this.tituloPuerta.Size = new System.Drawing.Size(217, 32);
-            this.tituloPuerta.TabIndex = 8;
-            this.tituloPuerta.Text = "Planeta Puerta Celestial";
-            // 
-            // richTextBoxPuerta
-            // 
-            this.richTextBoxPuerta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBoxPuerta.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxPuerta.Location = new System.Drawing.Point(3, 35);
-            this.richTextBoxPuerta.Name = "richTextBoxPuerta";
-            this.richTextBoxPuerta.ReadOnly = true;
-            this.richTextBoxPuerta.Size = new System.Drawing.Size(367, 92);
-            this.richTextBoxPuerta.TabIndex = 9;
-            this.richTextBoxPuerta.Text = "Pequeño planeta acogedor, tranquilo, en el que aunda la naturaleza y la paz. Idea" +
-    "l para quien quiera descansar.";
-            // 
-            // linkReservaPuerta
-            // 
-            this.linkReservaPuerta.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.linkReservaPuerta.AutoSize = true;
-            this.linkReservaPuerta.BackColor = System.Drawing.SystemColors.Control;
-            this.linkReservaPuerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkReservaPuerta.Location = new System.Drawing.Point(119, 142);
-            this.linkReservaPuerta.Name = "linkReservaPuerta";
-            this.linkReservaPuerta.Size = new System.Drawing.Size(141, 25);
-            this.linkReservaPuerta.TabIndex = 10;
-            this.linkReservaPuerta.TabStop = true;
-            this.linkReservaPuerta.Text = "Reserva Aquí";
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 379F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 581F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.pictureBox4, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.pictureBox5, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.tituloAgostini, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.richTextBox1, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.linkReservaAgostini, 0, 2);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(483, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(373, 167);
-            this.tableLayoutPanel5.TabIndex = 10;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(963, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(1, 26);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(473, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(393, 26);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 7;
-            this.pictureBox5.TabStop = false;
-            // 
-            // tituloAgostini
-            // 
-            this.tituloAgostini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.tituloAgostini.AutoSize = true;
-            this.tituloAgostini.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloAgostini.Location = new System.Drawing.Point(100, 0);
-            this.tituloAgostini.Name = "tituloAgostini";
-            this.tituloAgostini.Size = new System.Drawing.Size(179, 32);
-            this.tituloAgostini.TabIndex = 8;
-            this.tituloAgostini.Text = "Planeta DeAgostini";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 35);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.richTextBox1.Size = new System.Drawing.Size(367, 92);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "Planeta ideal para quien busca una experiencia inolvidable, repleto de paisajes j" +
-    "amás visto y naturaleza alienígena recién descubierta.";
-            // 
-            // linkReservaAgostini
-            // 
-            this.linkReservaAgostini.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.linkReservaAgostini.AutoSize = true;
-            this.linkReservaAgostini.BackColor = System.Drawing.SystemColors.Control;
-            this.linkReservaAgostini.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkReservaAgostini.Location = new System.Drawing.Point(119, 142);
-            this.linkReservaAgostini.Name = "linkReservaAgostini";
-            this.linkReservaAgostini.Size = new System.Drawing.Size(141, 25);
-            this.linkReservaAgostini.TabIndex = 10;
-            this.linkReservaAgostini.TabStop = true;
-            this.linkReservaAgostini.Text = "Reserva Aquí";
             // 
             // tableLayoutPanel6
             // 
@@ -475,12 +317,175 @@
             this.linkReservaNamek.AutoSize = true;
             this.linkReservaNamek.BackColor = System.Drawing.SystemColors.Control;
             this.linkReservaNamek.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkReservaNamek.Location = new System.Drawing.Point(119, 142);
+            this.linkReservaNamek.Location = new System.Drawing.Point(104, 142);
             this.linkReservaNamek.Name = "linkReservaNamek";
-            this.linkReservaNamek.Size = new System.Drawing.Size(141, 25);
+            this.linkReservaNamek.Size = new System.Drawing.Size(170, 25);
             this.linkReservaNamek.TabIndex = 10;
             this.linkReservaNamek.TabStop = true;
-            this.linkReservaNamek.Text = "Reserva Aquí";
+            this.linkReservaNamek.Text = "Más información";
+            this.linkReservaNamek.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReservaNamek_LinkClicked);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 379F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 581F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.pictureBox4, 2, 0);
+            this.tableLayoutPanel5.Controls.Add(this.pictureBox5, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.tituloAgostini, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.richTextBox1, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.linkReservaAgostini, 0, 2);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(483, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(373, 167);
+            this.tableLayoutPanel5.TabIndex = 10;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(963, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(1, 26);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(473, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(393, 26);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 7;
+            this.pictureBox5.TabStop = false;
+            // 
+            // tituloAgostini
+            // 
+            this.tituloAgostini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tituloAgostini.AutoSize = true;
+            this.tituloAgostini.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloAgostini.Location = new System.Drawing.Point(100, 0);
+            this.tituloAgostini.Name = "tituloAgostini";
+            this.tituloAgostini.Size = new System.Drawing.Size(179, 32);
+            this.tituloAgostini.TabIndex = 8;
+            this.tituloAgostini.Text = "Planeta DeAgostini";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(3, 35);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.richTextBox1.Size = new System.Drawing.Size(367, 92);
+            this.richTextBox1.TabIndex = 9;
+            this.richTextBox1.Text = "Planeta ideal para quien busca una experiencia inolvidable, repleto de paisajes j" +
+    "amás visto y naturaleza alienígena recién descubierta.";
+            // 
+            // linkReservaAgostini
+            // 
+            this.linkReservaAgostini.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.linkReservaAgostini.AutoSize = true;
+            this.linkReservaAgostini.BackColor = System.Drawing.SystemColors.Control;
+            this.linkReservaAgostini.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkReservaAgostini.Location = new System.Drawing.Point(104, 142);
+            this.linkReservaAgostini.Name = "linkReservaAgostini";
+            this.linkReservaAgostini.Size = new System.Drawing.Size(170, 25);
+            this.linkReservaAgostini.TabIndex = 10;
+            this.linkReservaAgostini.TabStop = true;
+            this.linkReservaAgostini.Text = "Más información";
+            this.linkReservaAgostini.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReservaAgostini_LinkClicked);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 379F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 581F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.pictureBox7, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.pictureBox8, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tituloPuerta, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.richTextBoxPuerta, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.linkReservaPuerta, 0, 2);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(373, 167);
+            this.tableLayoutPanel4.TabIndex = 9;
+            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(963, 3);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(1, 26);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 2;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(473, 3);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(393, 26);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 7;
+            this.pictureBox8.TabStop = false;
+            // 
+            // tituloPuerta
+            // 
+            this.tituloPuerta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tituloPuerta.AutoSize = true;
+            this.tituloPuerta.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloPuerta.Location = new System.Drawing.Point(81, 0);
+            this.tituloPuerta.Name = "tituloPuerta";
+            this.tituloPuerta.Size = new System.Drawing.Size(217, 32);
+            this.tituloPuerta.TabIndex = 8;
+            this.tituloPuerta.Text = "Planeta Puerta Celestial";
+            // 
+            // richTextBoxPuerta
+            // 
+            this.richTextBoxPuerta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxPuerta.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxPuerta.Location = new System.Drawing.Point(3, 35);
+            this.richTextBoxPuerta.Name = "richTextBoxPuerta";
+            this.richTextBoxPuerta.ReadOnly = true;
+            this.richTextBoxPuerta.Size = new System.Drawing.Size(367, 92);
+            this.richTextBoxPuerta.TabIndex = 9;
+            this.richTextBoxPuerta.Text = "Pequeño planeta acogedor, tranquilo, en el que aunda la naturaleza y la paz. Idea" +
+    "l para quien quiera descansar.";
+            // 
+            // linkReservaPuerta
+            // 
+            this.linkReservaPuerta.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.linkReservaPuerta.AutoSize = true;
+            this.linkReservaPuerta.BackColor = System.Drawing.SystemColors.Control;
+            this.linkReservaPuerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkReservaPuerta.Location = new System.Drawing.Point(104, 142);
+            this.linkReservaPuerta.Name = "linkReservaPuerta";
+            this.linkReservaPuerta.Size = new System.Drawing.Size(170, 25);
+            this.linkReservaPuerta.TabIndex = 10;
+            this.linkReservaPuerta.TabStop = true;
+            this.linkReservaPuerta.Text = "Más información";
+            this.linkReservaPuerta.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReservaPuerta_LinkClicked);
             // 
             // Principal
             // 
@@ -504,18 +509,18 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

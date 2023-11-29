@@ -25,6 +25,38 @@ namespace ProyectoViajes.Views
             cp.esconderMenu(menuStrip,isAdmin);
         }
 
-        
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void linkReservaNamek_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InfoNamek infNam = new InfoNamek();
+            this.Hide();
+            this.Close();
+            infNam.ShowDialog();
+        }
+
+        private void linkReservaPuerta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InfoPuerta infPu = new InfoPuerta();
+            this.Hide();
+            this.Close();
+            infPu.ShowDialog();
+        }
+
+        private void linkReservaAgostini_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InfoDeAgostini infDA = new InfoDeAgostini();
+            this.Hide();
+            this.Close();
+            infDA.ShowDialog();
+        }
     }
 }

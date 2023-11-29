@@ -78,6 +78,24 @@
     <Compile Include="Controls\ControladorPrincipal.cs" />
     <Compile Include="Controls\ControladorRegistro.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Views\InfoDeAgostini.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InfoDeAgostini.Designer.cs">
+      <DependentUpon>InfoDeAgostini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InfoNamek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InfoNamek.Designer.cs">
+      <DependentUpon>InfoNamek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InfoPuerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InfoPuerta.Designer.cs">
+      <DependentUpon>InfoPuerta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +125,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\InfoDeAgostini.resx">
+      <DependentUpon>InfoDeAgostini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InfoNamek.resx">
+      <DependentUpon>InfoNamek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InfoPuerta.resx">
+      <DependentUpon>InfoPuerta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </EmbeddedResource>
