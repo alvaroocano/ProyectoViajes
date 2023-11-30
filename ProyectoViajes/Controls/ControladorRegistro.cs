@@ -181,7 +181,7 @@ namespace ProyectoViajes.Controls
                 string fechaFormateada = fecha.ToString("yyyy-MM-dd");
 
                 // Utiliza el nuevo Id al registrar el nuevo usuario
-                Usuario us = new Usuario(nuevoId, nombre.Text, pass.Text, correo.Text, fechaFormateada);
+                Usuario us = new Usuario(nuevoId, nombre.Text, pass.Text.GetHashCode().ToString(), correo.Text, fechaFormateada);
                 ListaDatosUsuarios.listaUsuarios.Add(us);
                 escribirXML();
                 reg.Hide();

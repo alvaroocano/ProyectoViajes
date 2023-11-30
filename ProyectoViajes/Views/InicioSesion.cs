@@ -39,7 +39,7 @@ namespace ProyectoViajes
         public static int contador = 0;
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cis.validarUsuario(txtUsuario.Text,txtContrasena.Text,this);
+            cis.validarUsuario(txtUsuario.Text,txtContrasena.Text.GetHashCode().ToString(),this);
            
         }
     }

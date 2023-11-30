@@ -8,11 +8,13 @@ using ProyectoViajes.Models;
 using System.Windows.Forms;
 using static ProyectoViajes.Controls.ControladorInicioSesion;
 using System.Xml.Serialization;
+using ProyectoViajes.Views;
 
 namespace ProyectoViajes.Controls
 {
     internal class ControladorInfoUsuarios
     {
+
         public List<Usuario> leerXML()
         {
             try
@@ -76,8 +78,12 @@ namespace ProyectoViajes.Controls
 
             Button botonEditar = new System.Windows.Forms.Button();
             botonEditar.AutoSize = true;
-            botonEditar.Size = new System.Drawing.Size(82, 24);
+            botonEditar.Size = new System.Drawing.Size(82, 20);
             botonEditar.Location = new System.Drawing.Point(GrupoLbl.Right + 20, posicion);
+            botonEditar.Text = "Modificar";
+
+            ModificarUsuario mus = new ModificarUsuario();
+            botonEditar.Click += (sender, e) => MiBoton_Click(sender, e,user, correo, fechaNacimiento, mus);
 
             g.Controls.Add(GrupoLbl);
             g.Controls.Add(botonEditar);
@@ -88,7 +94,7 @@ namespace ProyectoViajes.Controls
             int pos = 0;
             for (int i = 0; i < lista.Count; i++)
             {
-                pos = pos + 20;
+                pos = pos + 30;
                 crearEtiqueta(lista[i].Id, lista[i].User, lista[i].Correo, lista[i].FechaNacimiento, pos, g);
 
             }
@@ -99,7 +105,17 @@ namespace ProyectoViajes.Controls
             form.Refresh();
         }
 
+        private void MiBoton_Click(object sender, EventArgs e, string user, string email, string fecha, Form form)
+        {
+            // Verifica si el formulario es del tipo esperado (ModificarUsuario)
+            if (form is ModificarUsuario modificarUsuarioForm)
+            {
+                // Asigna el ID al TextBox en el formulario ModificarUsuario
+                modificarUsuarioForm.SetDatos(user, email, fecha);
+            }
 
+            form.ShowDialog();
+        }
 
 
 
