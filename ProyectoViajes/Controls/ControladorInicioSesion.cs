@@ -30,8 +30,10 @@ namespace ProyectoViajes.Controls
             // Verificar si el usuario "admin" ya está presente
             if (!usuariosActuales.Any(u => u.User == "admin"))
             {
+                DateTime fechaActual = DateTime.Now;
+                string fechaFormateada = fechaActual.ToString("yyyy-MM-dd");
                 // Agregar al usuario "admin" si no está presente
-                usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", DateTime.Now));
+                usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com",fechaFormateada));
             }
 
             // Actualizar la lista global

@@ -12,14 +12,14 @@ namespace ProyectoViajes.Models
         private String user;
         private String pass;
         private String correo;
-        private DateTime fechaNacimiento;
+        private String fechaNacimiento;
 
         public Usuario()
         {
 
         }
 
-        public Usuario(int id, string user, string pass, string correo, DateTime fechaNacimiento)
+        public Usuario(int id, string user, string pass, string correo, string fechaNacimiento)
         {
             this.Id = id;
             this.User = user;
@@ -32,6 +32,6 @@ namespace ProyectoViajes.Models
         public string User { get => user; set => user = value; }
         public string Pass { get => pass; set => pass = value; }
         public string Correo { get => correo; set => correo = value; }
-        public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
+        public string FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
     }
 }

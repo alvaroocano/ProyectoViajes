@@ -42,7 +42,9 @@ namespace ProyectoViajes.Controls
                 if (!usuariosActuales.Any(u => u.User == "admin"))
                 {
                     // Agregar al usuario "admin" si no está presente
-                    usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", DateTime.Now));
+                    DateTime fechaActual = DateTime.Now;
+                    string fechaFormateada = fechaActual.ToString("yyyy-MM-dd");
+                    usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", fechaFormateada));
                 }
 
                 // Escribe la lista completa de usuarios al archivo XML
@@ -59,7 +61,7 @@ namespace ProyectoViajes.Controls
                 Console.WriteLine("Error escribiendo xml " + e.Message);
             }
         }
-        public void crearEtiqueta(int id, string user, string correo,DateTime fechaNacimiento, int posicion, System.Windows.Forms.GroupBox g)
+        public void crearEtiqueta(int id, string user, string correo,string fechaNacimiento, int posicion, System.Windows.Forms.GroupBox g)
         {
             Label GrupoLbl = new System.Windows.Forms.Label();
             GrupoLbl.AutoSize = true;
@@ -75,7 +77,7 @@ namespace ProyectoViajes.Controls
             Button botonEditar = new System.Windows.Forms.Button();
             botonEditar.AutoSize = true;
             botonEditar.Size = new System.Drawing.Size(82, 24);
-            new System.Drawing.Point(GrupoLbl.Right + 5, posicion);
+            botonEditar.Location = new System.Drawing.Point(GrupoLbl.Right + 20, posicion);
 
             g.Controls.Add(GrupoLbl);
             g.Controls.Add(botonEditar);

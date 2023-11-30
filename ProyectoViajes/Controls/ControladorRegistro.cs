@@ -20,7 +20,9 @@ namespace ProyectoViajes.Controls
 
         public void cargarUsuarios()
         {
-            ListaDatosUsuarios.listaUsuarios.Add(new Usuario(1, "admin", "1234", "admin@admin.com", DateTime.Now));
+            DateTime fechaActual = DateTime.Now;
+            string fechaFormateada = fechaActual.ToString("yyyy-MM-dd");
+            ListaDatosUsuarios.listaUsuarios.Add(new Usuario(1, "admin", "1234", "admin@admin.com", fechaFormateada));
 
         }
 
@@ -54,7 +56,9 @@ namespace ProyectoViajes.Controls
                 if (!usuariosActuales.Any(u => u.User == "admin"))
                 {
                     // Agregar al usuario "admin" si no está presente
-                    usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", DateTime.Now));
+                    DateTime fechaActual = DateTime.Now;
+                    string fechaFormateada = fechaActual.ToString("yyyy-MM-dd");
+                    usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", fechaFormateada));
                 }
 
                 // Escribe la lista completa de usuarios al archivo XML
@@ -173,8 +177,11 @@ namespace ProyectoViajes.Controls
 
                 MessageBox.Show("Todo OK");
 
+                DateTime fecha = fechaNacimiento.Value;
+                string fechaFormateada = fecha.ToString("yyyy-MM-dd");
+
                 // Utiliza el nuevo Id al registrar el nuevo usuario
-                Usuario us = new Usuario(nuevoId, nombre.Text, pass.Text, correo.Text, fechaNacimiento.Value);
+                Usuario us = new Usuario(nuevoId, nombre.Text, pass.Text, correo.Text, fechaFormateada);
                 ListaDatosUsuarios.listaUsuarios.Add(us);
                 escribirXML();
                 reg.Hide();
