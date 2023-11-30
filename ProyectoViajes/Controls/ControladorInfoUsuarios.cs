@@ -71,7 +71,14 @@ namespace ProyectoViajes.Controls
             GrupoLbl.Size = new System.Drawing.Size(291, 20);
             GrupoLbl.TabIndex = 1;
             GrupoLbl.Text = id + " " + user + " " + correo +" "+fechaNacimiento.ToString();
+
+            Button botonEditar = new System.Windows.Forms.Button();
+            botonEditar.AutoSize = true;
+            botonEditar.Size = new System.Drawing.Size(82, 24);
+            new System.Drawing.Point(GrupoLbl.Right + 5, posicion);
+
             g.Controls.Add(GrupoLbl);
+            g.Controls.Add(botonEditar);
         }
 
         public void crearEmpleados(List<Usuario> lista, System.Windows.Forms.GroupBox g)
@@ -83,6 +90,11 @@ namespace ProyectoViajes.Controls
                 crearEtiqueta(lista[i].Id, lista[i].User, lista[i].Correo, lista[i].FechaNacimiento, pos, g);
 
             }
+        }
+
+        public void refrescar(Form form)
+        {
+            form.Refresh();
         }
 
 

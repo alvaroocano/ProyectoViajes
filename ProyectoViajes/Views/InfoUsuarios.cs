@@ -29,6 +29,9 @@ namespace ProyectoViajes.Views
             ciu.crearEmpleados(ListaDatosUsuarios.listaUsuarios, groupBox);
         }
 
-       
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ciu.refrescar(this);
+        }
     }
 }

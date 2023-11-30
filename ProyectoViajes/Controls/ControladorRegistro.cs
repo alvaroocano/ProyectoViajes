@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -107,19 +108,48 @@ namespace ProyectoViajes.Controls
             {
                 nombre.BackColor = Color.Red;
                 todoBien = false;
+                MessageBox.Show("El nombre no puede estar vacío");
+
+            }else if(!Regex.IsMatch(nombre.Text, "[a-zA-z]+$"))
+            {
+                nombre.BackColor = Color.Red;
+                todoBien = false;
+                MessageBox.Show("El nombre debe contener únicamente letras");
+            }
+            else if (nombre.Text.Length > 8)
+            {
+                nombre.BackColor = Color.Red;
+                todoBien = false;
+                MessageBox.Show("El nombre no puede tener más de 8 caracteres");
             }
 
             if (pass.Text.Equals(""))
             {
                 pass.BackColor = Color.Red;
                 todoBien = false;
+                MessageBox.Show("La contraseña no puede estar vacía");
+            }
+            else if (pass.Text.Length > 20)
+            {
+                pass.BackColor = Color.Red;
+                todoBien = false;
+                MessageBox.Show("La contraseña no puede contener más de 20 caracteres");
             }
 
             if (correo.Text.Equals(""))
             {
                 correo.BackColor = Color.Red;
                 todoBien = false;
+                MessageBox.Show("El correo no puede estar vacío");
             }
+            else if (!Regex.IsMatch(correo.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                correo.BackColor = Color.Red;
+                todoBien = false;
+                MessageBox.Show("El correo no es válido");
+
+            }
+            
 
             DateTime fechaSeleccionada = fechaNacimiento.Value;
 
