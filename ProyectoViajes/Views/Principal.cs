@@ -19,6 +19,8 @@ namespace ProyectoViajes.Views
         }
 
         ControladorPrincipal cp = new ControladorPrincipal();
+        ControladorMenu cm = new ControladorMenu();
+
         public bool isAdmin;
         private void Principal_Load(object sender, EventArgs e)
         {
@@ -57,6 +59,11 @@ namespace ProyectoViajes.Views
             this.Hide();
             this.Close();
             infDA.ShowDialog();
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.infoUsuarios(this);
         }
     }
 }

@@ -72,19 +72,20 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.crearToolStripMenuItem.Text = "Crear";
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarToolStripMenuItem.Text = "Modificar";
+            this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.borrarToolStripMenuItem.Text = "Eliminar";
             // 
             // empleadosToolStripMenuItem
@@ -181,7 +182,6 @@
             this.textoNamek.Size = new System.Drawing.Size(662, 349);
             this.textoNamek.TabIndex = 1;
             this.textoNamek.Text = resources.GetString("textoNamek.Text");
-            this.textoNamek.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // InfoNamek
             // 

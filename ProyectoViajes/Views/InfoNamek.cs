@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoViajes.Controls;
 
 namespace ProyectoViajes.Views
 {
@@ -17,14 +18,16 @@ namespace ProyectoViajes.Views
             InitializeComponent();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        ControladorMenu cm = new ControladorMenu();
 
         private void linkReservaNamek_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.infoUsuarios(this);
         }
     }
 }

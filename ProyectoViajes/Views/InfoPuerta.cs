@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoViajes.Controls;
 
 namespace ProyectoViajes.Views
 {
@@ -15,6 +16,18 @@ namespace ProyectoViajes.Views
         public InfoPuerta()
         {
             InitializeComponent();
+        }
+
+        ControladorMenu cm = new ControladorMenu();
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.infoUsuarios(this);
         }
     }
 }

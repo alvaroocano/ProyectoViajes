@@ -86,6 +86,19 @@ namespace ProyectoViajes.Controls
             return edad >= 18;
         }
 
+        private int ObtenerUltimoId()
+        {
+            // Obtén el último Id de usuario registrado en la lista
+            if (ListaDatosUsuarios.listaUsuarios.Count > 0)
+            {
+                return ListaDatosUsuarios.listaUsuarios.Max(u => u.Id);
+            }
+            else
+            {
+                return 0; // Si no hay usuarios registrados, devuelve 0 como base
+            }
+        }
+
         public void validarEmpleado(TextBox nombre, TextBox pass, TextBox correo, DateTimePicker fechaNacimiento, TextBox errorEdad, Registro reg, InicioSesion inis)
         {
             bool todoBien = true;
@@ -122,12 +135,16 @@ namespace ProyectoViajes.Controls
 
             if (todoBien)
             {
-                Random random = new Random();
+                // Obtén el último Id de usuario registrado
+                int ultimoId = ObtenerUltimoId();
+
+                // Incrementa el Id en 1 para obtener el nuevo Id
+                int nuevoId = ultimoId + 1;
 
                 MessageBox.Show("Todo OK");
-                int idUsuario = random.Next(2, 101);
 
-                Usuario us = new Usuario(idUsuario, nombre.Text, pass.Text, correo.Text, fechaNacimiento.Value);
+                // Utiliza el nuevo Id al registrar el nuevo usuario
+                Usuario us = new Usuario(nuevoId, nombre.Text, pass.Text, correo.Text, fechaNacimiento.Value);
                 ListaDatosUsuarios.listaUsuarios.Add(us);
                 escribirXML();
                 reg.Hide();
