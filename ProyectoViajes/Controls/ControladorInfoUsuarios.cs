@@ -9,60 +9,15 @@ using System.Windows.Forms;
 using static ProyectoViajes.Controls.ControladorInicioSesion;
 using System.Xml.Serialization;
 using ProyectoViajes.Views;
+using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace ProyectoViajes.Controls
 {
     internal class ControladorInfoUsuarios
     {
-
-        public List<Usuario> leerXML()
-        {
-            try
-            {
-                string xml = File.ReadAllText("usuarios.xml");
-                using (var reader = new StringReader(xml))
-                {
-                    var serializer = new XmlSerializer(typeof(List<Usuario>));
-                    return (List<Usuario>)serializer.Deserialize(reader);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error leyendo xml " + e.Message);
-                return new List<Usuario>();
-            }
-        }
-
-        public void escribirXML()
-        {
-            try
-            {
-                // Obtener la lista actual de usuarios (usando la lista global)
-                List<Usuario> usuariosActuales = ListaDatosUsuarios.listaUsuarios;
-
-                // Verificar si el usuario "admin" ya está presente
-                if (!usuariosActuales.Any(u => u.User == "admin"))
-                {
-                    // Agregar al usuario "admin" si no está presente
-                    DateTime fechaActual = DateTime.Now;
-                    string fechaFormateada = fechaActual.ToString("yyyy-MM-dd");
-                    usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", fechaFormateada));
-                }
-
-                // Escribe la lista completa de usuarios al archivo XML
-                using (var writer = new StreamWriter("usuarios.xml"))
-                {
-                    var namespaces = new XmlSerializerNamespaces();
-                    namespaces.Add(string.Empty, string.Empty);
-                    var serializer = new XmlSerializer(typeof(List<Usuario>));
-                    serializer.Serialize(writer, usuariosActuales, namespaces);
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Error escribiendo xml " + e.Message);
-            }
-        }
+        ControladorRegistro cr = new ControladorRegistro(); 
+        
         public void crearEtiqueta(int id, string user, string correo,string fechaNacimiento, int posicion, System.Windows.Forms.GroupBox g)
         {
             Label GrupoLbl = new System.Windows.Forms.Label();
@@ -83,7 +38,8 @@ namespace ProyectoViajes.Controls
             botonEditar.Text = "Modificar";
 
             ModificarUsuario mus = new ModificarUsuario();
-            botonEditar.Click += (sender, e) => MiBoton_Click(sender, e,user, correo, fechaNacimiento, mus);
+            InfoUsuarios info = new InfoUsuarios();
+            botonEditar.Click += (sender, e) => MiBoton_Click(sender, e, user, correo, fechaNacimiento, id, mus, info);
 
             g.Controls.Add(GrupoLbl);
             g.Controls.Add(botonEditar);
@@ -105,16 +61,102 @@ namespace ProyectoViajes.Controls
             form.Refresh();
         }
 
-        private void MiBoton_Click(object sender, EventArgs e, string user, string email, string fecha, Form form)
+        private void MiBoton_Click(object sender, EventArgs e, string user, string email, string fecha, int id,Form form1, Form form2)
         {
+
             // Verifica si el formulario es del tipo esperado (ModificarUsuario)
-            if (form is ModificarUsuario modificarUsuarioForm)
+            if (form1 is ModificarUsuario modificarUsuarioForm)
             {
                 // Asigna el ID al TextBox en el formulario ModificarUsuario
-                modificarUsuarioForm.SetDatos(user, email, fecha);
+                modificarUsuarioForm.SetDatos(user, email, fecha, id);
+
             }
 
-            form.ShowDialog();
+            form1.ShowDialog();
+            form2.Hide();
+            form2.Close();
+        }
+
+        public void modificarUsuario(TextBox nombre, TextBox correo, TextBox fecha, int id, Form form1, Form form2)
+        {
+           
+            var usuarioAModificar = ListaDatosUsuarios.listaUsuarios.FirstOrDefault(x => x.Id.Equals(id));
+
+            if(usuarioAModificar != null)
+            {
+                bool todoBien = true;
+
+                if (nombre.Text.Equals(""))
+                {
+                    nombre.BackColor = Color.Red;
+                    todoBien = false;
+                    MessageBox.Show("El nombre no puede estar vacío");
+
+                }
+                else if (!Regex.IsMatch(nombre.Text, "[a-zA-z]+$"))
+                {
+                    nombre.BackColor = Color.Red;
+                    todoBien = false;
+                    MessageBox.Show("El nombre debe contener únicamente letras");
+                }
+                else if (nombre.Text.Length > 8)
+                {
+                    nombre.BackColor = Color.Red;
+                    todoBien = false;
+                    MessageBox.Show("El nombre no puede tener más de 8 caracteres");
+                }
+
+                if (correo.Text.Equals(""))
+                {
+                    correo.BackColor = Color.Red;
+                    todoBien = false;
+                    MessageBox.Show("El correo no puede estar vacío");
+                }
+                else if (!Regex.IsMatch(correo.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+                {
+                    correo.BackColor = Color.Red;
+                    todoBien = false;
+                    MessageBox.Show("El correo no es válido");
+
+                }
+
+                
+
+                if (fecha.Text == "")
+                {
+                    fecha.BackColor = Color.Red;
+                    todoBien = false;
+                    MessageBox.Show("La fecha no puede estar vacío");
+                }
+                else
+                {
+                   DateTime fechaBien = DateTime.ParseExact(fecha.Text, "dd-MM-yyyy", null);
+                    if (!cr.EsMayorDeEdad(fechaBien))
+                    {
+                        MessageBox.Show("Debe ser mayor de edad");
+                        todoBien = false;
+                    }
+                }
+
+                if (todoBien)
+                {
+                    usuarioAModificar.User = nombre.Text;
+                    usuarioAModificar.Correo = correo.Text;
+                    usuarioAModificar.FechaNacimiento = fecha.Text;
+
+                    Usuario us = new Usuario(usuarioAModificar.Id, usuarioAModificar.User, usuarioAModificar.Pass, usuarioAModificar.Correo, usuarioAModificar.FechaNacimiento);
+
+                    int indiceUsuario = ListaDatosUsuarios.listaUsuarios.FindIndex(u => u.Id == usuarioAModificar.Id);
+                    ListaDatosUsuarios.listaUsuarios.RemoveAt(indiceUsuario);
+                    ListaDatosUsuarios.listaUsuarios.Insert(indiceUsuario, us);
+                    cr.escribirXML();
+                    MessageBox.Show("Todo OK ");
+                    form1.Hide();
+                    form1.Close();
+                    form2.ShowDialog();
+                }
+                
+            }
         }
 
 

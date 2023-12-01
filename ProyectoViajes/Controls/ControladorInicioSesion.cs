@@ -13,8 +13,7 @@ namespace ProyectoViajes.Controls
 {
     internal class ControladorInicioSesion
     {
-        
-        
+       
        
         public void redirigirRegistro()
         {

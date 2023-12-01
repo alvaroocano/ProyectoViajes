@@ -76,7 +76,7 @@ namespace ProyectoViajes.Controls
             }
         }
 
-        bool EsMayorDeEdad(DateTime fecha)
+        public bool EsMayorDeEdad(DateTime fecha)
         {
             // Calcular la edad
             int edad = DateTime.Now.Year - fecha.Year;
