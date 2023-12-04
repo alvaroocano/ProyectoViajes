@@ -85,7 +85,7 @@
             this.fotoPuerta.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.fotoPuerta.Image = ((System.Drawing.Image)(resources.GetObject("fotoPuerta.Image")));
             this.fotoPuerta.Location = new System.Drawing.Point(698, 16);
-            this.fotoPuerta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fotoPuerta.Margin = new System.Windows.Forms.Padding(4);
             this.fotoPuerta.Name = "fotoPuerta";
             this.fotoPuerta.Size = new System.Drawing.Size(380, 331);
             this.fotoPuerta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,6 +104,7 @@
             this.linkReservaPuerta.TabIndex = 3;
             this.linkReservaPuerta.TabStop = true;
             this.linkReservaPuerta.Text = "Reserva Aquí";
+            this.linkReservaPuerta.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReservaPuerta_LinkClicked);
             // 
             // textoPuerta
             // 
@@ -111,7 +112,7 @@
             this.textoPuerta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textoPuerta.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textoPuerta.Location = new System.Drawing.Point(446, 396);
-            this.textoPuerta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textoPuerta.Margin = new System.Windows.Forms.Padding(4);
             this.textoPuerta.Name = "textoPuerta";
             this.textoPuerta.ReadOnly = true;
             this.textoPuerta.Size = new System.Drawing.Size(883, 388);
@@ -143,21 +144,21 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.crearToolStripMenuItem.Text = "Crear";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.borrarToolStripMenuItem.Text = "Eliminar";
             this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 
@@ -196,7 +197,7 @@
             this.ClientSize = new System.Drawing.Size(1776, 945);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InfoPuerta";
             this.Text = "InfoPuerta";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

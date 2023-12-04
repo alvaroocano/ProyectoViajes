@@ -78,7 +78,7 @@ namespace ProyectoViajes.Controls
                 {
                     pr.isAdmin = true;
                 }
-
+                SesionUsuario.IniciarSesion(usuario);
                 pr.Show();
             }
             else
@@ -102,7 +102,23 @@ namespace ProyectoViajes.Controls
         {
             public static List<Usuario> listaUsuarios = new List<Usuario>();
         }
+
+        public static class SesionUsuario
+        {
+            public static string UsuarioActual { get; private set; }
+
+            public static void IniciarSesion(string nombreUsuario)
+            {
+                UsuarioActual = nombreUsuario;
+            }
+
+            public static void CerrarSesion()
+            {
+                UsuarioActual = null;
+            }
+        }
+
     }
 
-    
+
 }

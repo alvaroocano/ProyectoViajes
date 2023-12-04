@@ -33,5 +33,10 @@ namespace ProyectoViajes.Views
         {
             cm.borrarUsuario(this);
         }
+
+        private void linkReservaDeAgostini_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            cm.reserva(this);
+        }
     }
 }

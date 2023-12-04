@@ -104,6 +104,7 @@
             this.linkReservaDeAgostini.TabIndex = 3;
             this.linkReservaDeAgostini.TabStop = true;
             this.linkReservaDeAgostini.Text = "Reserva Aquí";
+            this.linkReservaDeAgostini.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReservaDeAgostini_LinkClicked);
             // 
             // textoDeAgostini
             // 
@@ -143,21 +144,21 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.crearToolStripMenuItem.Text = "Crear";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.borrarToolStripMenuItem.Text = "Eliminar";
             this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 

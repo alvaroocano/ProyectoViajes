@@ -80,5 +80,15 @@ namespace ProyectoViajes.Views
         {
             cm.correo(this);
         }
+
+        private void linkContacto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            cm.correo(this);
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

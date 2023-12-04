@@ -63,6 +63,7 @@
             this.tituloPuerta = new System.Windows.Forms.Label();
             this.richTextBoxPuerta = new System.Windows.Forms.RichTextBox();
             this.linkReservaPuerta = new System.Windows.Forms.LinkLabel();
+            this.linkContacto = new System.Windows.Forms.LinkLabel();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,25 +133,26 @@
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
-            this.empleadosToolStripMenuItem.Text = "Empleados";
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.empleadosToolStripMenuItem.Text = "Viajes";
+            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
             // crearToolStripMenuItem1
             // 
             this.crearToolStripMenuItem1.Name = "crearToolStripMenuItem1";
-            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
+            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.crearToolStripMenuItem1.Text = "Crear";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // tableLayoutPanel1
@@ -244,13 +246,15 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.linkContacto, 1, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 641);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1776, 213);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1776, 280);
             this.tableLayoutPanel3.TabIndex = 9;
             // 
             // tableLayoutPanel6
@@ -515,11 +519,24 @@
             this.linkReservaPuerta.Text = "Más información";
             this.linkReservaPuerta.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkReservaPuerta_LinkClicked);
             // 
+            // linkContacto
+            // 
+            this.linkContacto.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.linkContacto.AutoSize = true;
+            this.linkContacto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkContacto.Location = new System.Drawing.Point(838, 251);
+            this.linkContacto.Name = "linkContacto";
+            this.linkContacto.Size = new System.Drawing.Size(108, 29);
+            this.linkContacto.TabIndex = 12;
+            this.linkContacto.TabStop = true;
+            this.linkContacto.Text = "Contacto";
+            this.linkContacto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkContacto_LinkClicked);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1776, 869);
+            this.ClientSize = new System.Drawing.Size(1776, 948);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -538,6 +555,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -591,5 +609,6 @@
         private System.Windows.Forms.Label tituloNamek;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.LinkLabel linkReservaNamek;
+        private System.Windows.Forms.LinkLabel linkContacto;
     }
 }

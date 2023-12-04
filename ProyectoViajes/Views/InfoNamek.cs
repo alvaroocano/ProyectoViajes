@@ -22,7 +22,7 @@ namespace ProyectoViajes.Views
 
         private void linkReservaNamek_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            cm.reserva(this);
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)

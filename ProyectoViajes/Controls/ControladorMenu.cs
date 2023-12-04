@@ -38,9 +38,13 @@ namespace ProyectoViajes.Controls
         public void correo(Form form)
         {
             FormularioCorreo fc = new FormularioCorreo();
-            form.Hide();
-            form.Close();
             fc.ShowDialog();
+        }
+
+        public void reserva(Form form)
+        {
+            ReservaViaje rv = new ReservaViaje();
+            rv.ShowDialog();
         }
 
     }
