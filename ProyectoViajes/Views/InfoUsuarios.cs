@@ -38,5 +38,10 @@ namespace ProyectoViajes.Views
         {
             ciu.filtrar(groupBox, txtFiltrar);
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ciu.ordenar(comboBox1.Text, groupBox);
+        }
     }
 }

@@ -164,9 +164,31 @@ namespace ProyectoViajes.Controls
             crearUsuarios(listaFiltrada, g);
         }
 
-        public void ordenar(string ordenarPor)
+        public void ordenar(string ordenarPor, System.Windows.Forms.GroupBox g)
         {
+            switch (ordenarPor)
+            {
+                case "id":
+                    g.Controls.Clear();
+                    var listaOrdenada = ListaDatosUsuarios.listaUsuarios.OrderBy(m => m.Id).ToList();
 
+                    crearUsuarios(listaOrdenada, g);
+                break;
+
+                case "nombre":
+                    g.Controls.Clear();
+                    listaOrdenada = ListaDatosUsuarios.listaUsuarios.OrderBy(m => m.User).ToList();
+
+                    crearUsuarios(listaOrdenada, g);
+                break;
+
+                case "fecha de nacimiento":
+                    g.Controls.Clear();
+                    listaOrdenada = ListaDatosUsuarios.listaUsuarios.OrderBy(m => m.FechaNacimiento).ToList();
+
+                    crearUsuarios(listaOrdenada, g);
+                break;
+            }
         }
 
 
