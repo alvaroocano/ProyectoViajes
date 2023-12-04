@@ -39,13 +39,16 @@ namespace ProyectoViajes.Controls
 
             ModificarUsuario mus = new ModificarUsuario();
             InfoUsuarios info = new InfoUsuarios();
-            botonEditar.Click += (sender, e) => MiBoton_Click(sender, e, user, correo, fechaNacimiento, id, mus, info);
+
+            mus.SetDatos(user, correo, fechaNacimiento, id);
+
+            botonEditar.Click += (sender, e) => MiBoton_Click(sender, e, user, correo, fechaNacimiento, id, info, mus);
 
             g.Controls.Add(GrupoLbl);
             g.Controls.Add(botonEditar);
         }
 
-        public void crearEmpleados(List<Usuario> lista, System.Windows.Forms.GroupBox g)
+        public void crearUsuarios(List<Usuario> lista, System.Windows.Forms.GroupBox g)
         {
             int pos = 0;
             for (int i = 0; i < lista.Count; i++)
@@ -64,17 +67,10 @@ namespace ProyectoViajes.Controls
         private void MiBoton_Click(object sender, EventArgs e, string user, string email, string fecha, int id,Form form1, Form form2)
         {
 
-            // Verifica si el formulario es del tipo esperado (ModificarUsuario)
-            if (form1 is ModificarUsuario modificarUsuarioForm)
-            {
-                // Asigna el ID al TextBox en el formulario ModificarUsuario
-                modificarUsuarioForm.SetDatos(user, email, fecha, id);
-
-            }
-
-            form1.ShowDialog();
-            form2.Hide();
-            form2.Close();
+            form1.Hide();
+            form1.Close();
+            form2.ShowDialog();
+            
         }
 
         public void modificarUsuario(TextBox nombre, TextBox correo, TextBox fecha, int id, Form form1, Form form2)
@@ -157,6 +153,20 @@ namespace ProyectoViajes.Controls
                 }
                 
             }
+        }
+
+        public void filtrar(System.Windows.Forms.GroupBox g, System.Windows.Forms.TextBox t)
+        {
+            g.Controls.Clear();
+            string texto = t.Text.ToLower();
+
+            var listaFiltrada = ListaDatosUsuarios.listaUsuarios.Where(x => x.User.ToLower().StartsWith(texto)).ToList();
+            crearUsuarios(listaFiltrada, g);
+        }
+
+        public void ordenar(string ordenarPor)
+        {
+
         }
 
 

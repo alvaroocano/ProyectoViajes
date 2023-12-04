@@ -23,11 +23,6 @@ namespace ProyectoViajes.Views
         ControladorRegistro cr = new ControladorRegistro();
         InfoUsuarios info = new InfoUsuarios();
 
-        private void ModificarUsuario_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private int idGlobal;
 
         public void SetDatos(string user, string email, string fecha, int id)
@@ -61,6 +56,11 @@ namespace ProyectoViajes.Views
         private void textBoxFecha_Click(object sender, EventArgs e)
         {
             cr.volverBlanco(textBoxFecha);
+        }
+
+        private void ModificarUsuario_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

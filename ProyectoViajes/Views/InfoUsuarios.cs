@@ -26,12 +26,17 @@ namespace ProyectoViajes.Views
 
         private void InfoUsuarios_Load(object sender, EventArgs e)
         {
-            ciu.crearEmpleados(ListaDatosUsuarios.listaUsuarios, groupBox);
+            ciu.crearUsuarios(ListaDatosUsuarios.listaUsuarios, groupBox);
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ciu.refrescar(this);
+        }
+
+        private void txtFiltrar_KeyUp(object sender, KeyEventArgs e)
+        {
+            ciu.filtrar(groupBox, txtFiltrar);
         }
     }
 }
