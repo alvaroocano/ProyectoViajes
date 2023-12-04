@@ -57,15 +57,15 @@
             this.tableLayoutPanel1.Controls.Add(this.linkReservaDeAgostini, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.textoDeAgostini, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 49, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 382F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1338, 752);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 470F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1784, 926);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // tituloAgostini
@@ -73,9 +73,10 @@
             this.tituloAgostini.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tituloAgostini.AutoSize = true;
             this.tituloAgostini.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloAgostini.Location = new System.Drawing.Point(579, 295);
+            this.tituloAgostini.Location = new System.Drawing.Point(775, 361);
+            this.tituloAgostini.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tituloAgostini.Name = "tituloAgostini";
-            this.tituloAgostini.Size = new System.Drawing.Size(179, 23);
+            this.tituloAgostini.Size = new System.Drawing.Size(233, 31);
             this.tituloAgostini.TabIndex = 9;
             this.tituloAgostini.Text = "Planeta DeAgostini";
             // 
@@ -83,9 +84,10 @@
             // 
             this.fotoDeAgostini.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.fotoDeAgostini.Image = ((System.Drawing.Image)(resources.GetObject("fotoDeAgostini.Image")));
-            this.fotoDeAgostini.Location = new System.Drawing.Point(526, 13);
+            this.fotoDeAgostini.Location = new System.Drawing.Point(702, 16);
+            this.fotoDeAgostini.Margin = new System.Windows.Forms.Padding(4);
             this.fotoDeAgostini.Name = "fotoDeAgostini";
-            this.fotoDeAgostini.Size = new System.Drawing.Size(285, 269);
+            this.fotoDeAgostini.Size = new System.Drawing.Size(380, 331);
             this.fotoDeAgostini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fotoDeAgostini.TabIndex = 0;
             this.fotoDeAgostini.TabStop = false;
@@ -95,9 +97,10 @@
             this.linkReservaDeAgostini.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkReservaDeAgostini.AutoSize = true;
             this.linkReservaDeAgostini.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkReservaDeAgostini.Location = new System.Drawing.Point(617, 700);
+            this.linkReservaDeAgostini.Location = new System.Drawing.Point(827, 862);
+            this.linkReservaDeAgostini.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkReservaDeAgostini.Name = "linkReservaDeAgostini";
-            this.linkReservaDeAgostini.Size = new System.Drawing.Size(104, 20);
+            this.linkReservaDeAgostini.Size = new System.Drawing.Size(129, 25);
             this.linkReservaDeAgostini.TabIndex = 3;
             this.linkReservaDeAgostini.TabStop = true;
             this.linkReservaDeAgostini.Text = "Reserva Aquí";
@@ -107,21 +110,23 @@
             this.textoDeAgostini.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textoDeAgostini.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textoDeAgostini.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textoDeAgostini.Location = new System.Drawing.Point(338, 321);
+            this.textoDeAgostini.Location = new System.Drawing.Point(450, 396);
+            this.textoDeAgostini.Margin = new System.Windows.Forms.Padding(4);
             this.textoDeAgostini.Name = "textoDeAgostini";
             this.textoDeAgostini.ReadOnly = true;
-            this.textoDeAgostini.Size = new System.Drawing.Size(662, 337);
+            this.textoDeAgostini.Size = new System.Drawing.Size(883, 415);
             this.textoDeAgostini.TabIndex = 1;
             this.textoDeAgostini.Text = resources.GetString("textoDeAgostini.Text");
             // 
             // menuStrip
             // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem,
             this.empleadosToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1338, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1784, 28);
             this.menuStrip.TabIndex = 5;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -132,27 +137,29 @@
             this.modificarToolStripMenuItem,
             this.borrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.crearToolStripMenuItem.Text = "Crear";
+            this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.borrarToolStripMenuItem.Text = "Eliminar";
+            this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 
             // empleadosToolStripMenuItem
             // 
@@ -161,34 +168,35 @@
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             // 
             // crearToolStripMenuItem1
             // 
             this.crearToolStripMenuItem1.Name = "crearToolStripMenuItem1";
-            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
             this.crearToolStripMenuItem1.Text = "Crear";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // InfoDeAgostini
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1338, 812);
+            this.ClientSize = new System.Drawing.Size(1784, 999);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InfoDeAgostini";
             this.Text = "InfoDeAgostini";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

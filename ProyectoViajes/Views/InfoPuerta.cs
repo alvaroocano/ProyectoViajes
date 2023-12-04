@@ -22,12 +22,17 @@ namespace ProyectoViajes.Views
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            cm.crearUsuario(this);
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cm.infoUsuarios(this);
+        }
+
+        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.borrarUsuario(this);
         }
     }
 }

@@ -19,5 +19,29 @@ namespace ProyectoViajes.Controls
             iu.ShowDialog();
         }
 
+        public void crearUsuario(Form form)
+        {
+            CrearUsuarioAdmin cua = new CrearUsuarioAdmin();
+            form.Hide();
+            form.Close();
+            cua.ShowDialog();
+        }
+
+        public void borrarUsuario(Form form)
+        {
+            BorrarUsuariosAdmin bua = new BorrarUsuariosAdmin();
+            form.Hide();
+            form.Close();
+            bua.ShowDialog();
+        }
+
+        public void correo(Form form)
+        {
+            FormularioCorreo fc = new FormularioCorreo();
+            form.Hide();
+            form.Close();
+            fc.ShowDialog();
+        }
+
     }
 }

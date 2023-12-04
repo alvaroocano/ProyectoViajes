@@ -50,12 +50,13 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem,
             this.empleadosToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1215, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1620, 28);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -66,27 +67,29 @@
             this.modificarToolStripMenuItem,
             this.borrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.crearToolStripMenuItem.Text = "Crear";
+            this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.borrarToolStripMenuItem.Text = "Eliminar";
+            this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 
             // empleadosToolStripMenuItem
             // 
@@ -95,25 +98,25 @@
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             // 
             // crearToolStripMenuItem1
             // 
             this.crearToolStripMenuItem1.Name = "crearToolStripMenuItem1";
-            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
             this.crearToolStripMenuItem1.Text = "Crear";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // tableLayoutPanel1
@@ -125,15 +128,15 @@
             this.tableLayoutPanel1.Controls.Add(this.linkReservaNamek, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.textoNamek, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 28);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 49, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 369F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1215, 752);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 454F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1620, 926);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tituloNamek
@@ -141,9 +144,10 @@
             this.tituloNamek.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tituloNamek.AutoSize = true;
             this.tituloNamek.Font = new System.Drawing.Font("Microsoft Tai Le", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloNamek.Location = new System.Drawing.Point(535, 295);
+            this.tituloNamek.Location = new System.Drawing.Point(717, 361);
+            this.tituloNamek.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tituloNamek.Name = "tituloNamek";
-            this.tituloNamek.Size = new System.Drawing.Size(144, 23);
+            this.tituloNamek.Size = new System.Drawing.Size(186, 31);
             this.tituloNamek.TabIndex = 9;
             this.tituloNamek.Text = "Planeta Namek";
             // 
@@ -151,9 +155,10 @@
             // 
             this.pictureNamek.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureNamek.Image = ((System.Drawing.Image)(resources.GetObject("pictureNamek.Image")));
-            this.pictureNamek.Location = new System.Drawing.Point(465, 13);
+            this.pictureNamek.Location = new System.Drawing.Point(620, 16);
+            this.pictureNamek.Margin = new System.Windows.Forms.Padding(4);
             this.pictureNamek.Name = "pictureNamek";
-            this.pictureNamek.Size = new System.Drawing.Size(285, 269);
+            this.pictureNamek.Size = new System.Drawing.Size(380, 331);
             this.pictureNamek.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureNamek.TabIndex = 0;
             this.pictureNamek.TabStop = false;
@@ -163,9 +168,10 @@
             this.linkReservaNamek.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkReservaNamek.AutoSize = true;
             this.linkReservaNamek.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkReservaNamek.Location = new System.Drawing.Point(555, 687);
+            this.linkReservaNamek.Location = new System.Drawing.Point(745, 846);
+            this.linkReservaNamek.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkReservaNamek.Name = "linkReservaNamek";
-            this.linkReservaNamek.Size = new System.Drawing.Size(104, 20);
+            this.linkReservaNamek.Size = new System.Drawing.Size(129, 25);
             this.linkReservaNamek.TabIndex = 3;
             this.linkReservaNamek.TabStop = true;
             this.linkReservaNamek.Text = "Reserva Aquí";
@@ -176,20 +182,22 @@
             this.textoNamek.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textoNamek.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textoNamek.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textoNamek.Location = new System.Drawing.Point(276, 321);
+            this.textoNamek.Location = new System.Drawing.Point(368, 396);
+            this.textoNamek.Margin = new System.Windows.Forms.Padding(4);
             this.textoNamek.Name = "textoNamek";
             this.textoNamek.ReadOnly = true;
-            this.textoNamek.Size = new System.Drawing.Size(662, 349);
+            this.textoNamek.Size = new System.Drawing.Size(883, 430);
             this.textoNamek.TabIndex = 1;
             this.textoNamek.Text = resources.GetString("textoNamek.Text");
             // 
             // InfoNamek
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1215, 813);
+            this.ClientSize = new System.Drawing.Size(1620, 1001);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InfoNamek";
             this.Text = "InfoNamek";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

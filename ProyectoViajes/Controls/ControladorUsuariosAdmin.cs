@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 
 namespace ProyectoViajes.Controls
 {
-    internal class ControladorInfoUsuarios
+    internal class ControladorUsuariosAdmin
     {
         ControladorRegistro cr = new ControladorRegistro(); 
         

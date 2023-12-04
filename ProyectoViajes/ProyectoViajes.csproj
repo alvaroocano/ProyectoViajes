@@ -74,12 +74,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ControladorInfoUsuarios.cs" />
+    <Compile Include="Controls\ControladorBorrar.cs" />
+    <Compile Include="Controls\ControladorCorreo.cs" />
+    <Compile Include="Controls\ControladorUsuariosAdmin.cs" />
     <Compile Include="Controls\ControladorInicioSesion.cs" />
     <Compile Include="Controls\ControladorMenu.cs" />
     <Compile Include="Controls\ControladorPrincipal.cs" />
     <Compile Include="Controls\ControladorRegistro.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Views\BorrarUsuariosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BorrarUsuariosAdmin.Designer.cs">
+      <DependentUpon>BorrarUsuariosAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrearUsuarioAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CrearUsuarioAdmin.Designer.cs">
+      <DependentUpon>CrearUsuarioAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormularioCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormularioCorreo.Designer.cs">
+      <DependentUpon>FormularioCorreo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\InfoDeAgostini.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +159,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\BorrarUsuariosAdmin.resx">
+      <DependentUpon>BorrarUsuariosAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CrearUsuarioAdmin.resx">
+      <DependentUpon>CrearUsuarioAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormularioCorreo.resx">
+      <DependentUpon>FormularioCorreo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\InfoDeAgostini.resx">
       <DependentUpon>InfoDeAgostini.cs</DependentUpon>
     </EmbeddedResource>

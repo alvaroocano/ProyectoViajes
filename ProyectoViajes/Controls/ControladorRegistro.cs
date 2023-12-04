@@ -104,7 +104,7 @@ namespace ProyectoViajes.Controls
             }
         }
 
-        public void validarEmpleado(TextBox nombre, TextBox pass, TextBox correo, DateTimePicker fechaNacimiento, TextBox errorEdad, Registro reg, InicioSesion inis)
+        public void validarUsuario(TextBox nombre, TextBox pass, TextBox correo, DateTimePicker fechaNacimiento, TextBox errorEdad, Form form, Form form1)
         {
             bool todoBien = true;
 
@@ -153,6 +153,16 @@ namespace ProyectoViajes.Controls
                 MessageBox.Show("El correo no es válido");
 
             }
+
+            for(int i = 0;i<ListaDatosUsuarios.listaUsuarios.Count;i++)
+            {
+                if (correo.Text.Equals(ListaDatosUsuarios.listaUsuarios[i].Correo))
+                {
+                    correo.BackColor = Color.Red; 
+                    todoBien = false;
+                    MessageBox.Show("El correo ya ha sido registrado, porfavor, inicie sesión");
+                }
+            }
             
 
             DateTime fechaSeleccionada = fechaNacimiento.Value;
@@ -184,9 +194,9 @@ namespace ProyectoViajes.Controls
                 Usuario us = new Usuario(nuevoId, nombre.Text, pass.Text.GetHashCode().ToString(), correo.Text, fechaFormateada);
                 ListaDatosUsuarios.listaUsuarios.Add(us);
                 escribirXML();
-                reg.Hide();
-                reg.Close();
-                inis.ShowDialog();
+                form.Hide();
+                form.Close();
+                form1.ShowDialog();
             }
         }
 

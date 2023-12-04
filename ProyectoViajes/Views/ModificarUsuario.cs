@@ -19,7 +19,8 @@ namespace ProyectoViajes.Views
             InitializeComponent();
         }
 
-        ControladorInfoUsuarios ciu = new ControladorInfoUsuarios();
+        ControladorUsuariosAdmin ciu = new ControladorUsuariosAdmin();
+        ControladorMenu cm = new ControladorMenu();
         ControladorRegistro cr = new ControladorRegistro();
         InfoUsuarios info = new InfoUsuarios();
 
@@ -61,6 +62,21 @@ namespace ProyectoViajes.Views
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.infoUsuarios(this);
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.crearUsuario(this);
+        }
+
+        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.borrarUsuario(this);
         }
     }
 }

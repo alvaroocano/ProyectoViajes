@@ -22,7 +22,8 @@ namespace ProyectoViajes.Views
             InitializeComponent();
         }
 
-        ControladorInfoUsuarios ciu = new ControladorInfoUsuarios();
+        ControladorUsuariosAdmin ciu = new ControladorUsuariosAdmin();
+        ControladorMenu cm = new ControladorMenu();
 
         private void InfoUsuarios_Load(object sender, EventArgs e)
         {
@@ -42,6 +43,21 @@ namespace ProyectoViajes.Views
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ciu.ordenar(comboBox1.Text, groupBox);
+        }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.crearUsuario(this);
+        }
+
+        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.borrarUsuario(this);
+        }
+
+        private void groupBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

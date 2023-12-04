@@ -44,7 +44,7 @@ namespace ProyectoViajes.Views
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cr.validarEmpleado(txtUsuario, txtContrasena, txtCorreo, fechaNacimiento, edadError,this, inis);
+            cr.validarUsuario(txtUsuario, txtContrasena, txtCorreo, fechaNacimiento, edadError,this, inis);
 
             
         }
@@ -57,6 +57,11 @@ namespace ProyectoViajes.Views
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             cr.volverAIniSes(this, inis);
+        }
+
+        private void groupBoxInicioSesion_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
