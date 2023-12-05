@@ -57,7 +57,6 @@ namespace ProyectoViajes.Controls
 
             foreach (var ch in ListaChecked)
             {
-                char primerCaracter = ch.Text[0];
                 int indice = ListaDatosUsuarios.listaUsuarios.FindIndex(x => x.Correo.Equals(ch.Text));
                 if (indice != -1)
                 {

@@ -76,11 +76,13 @@
   <ItemGroup>
     <Compile Include="Controls\ControladorBorrar.cs" />
     <Compile Include="Controls\ControladorContacto.cs" />
+    <Compile Include="Controls\ControladorReserva.cs" />
     <Compile Include="Controls\ControladorUsuariosAdmin.cs" />
     <Compile Include="Controls\ControladorInicioSesion.cs" />
     <Compile Include="Controls\ControladorMenu.cs" />
     <Compile Include="Controls\ControladorPrincipal.cs" />
     <Compile Include="Controls\ControladorRegistro.cs" />
+    <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Views\BorrarUsuariosAdmin.cs">
       <SubType>Form</SubType>

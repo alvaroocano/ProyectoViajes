@@ -25,6 +25,8 @@ namespace ProyectoViajes.Views
         {
             edadError.Hide();
             txtUsuario.Select();
+            fechaNacimiento.MaxDate = DateTime.Now;
+            fechaNacimiento.Value = DateTime.Now;
         }
 
         private void txtUsuario_Click(object sender, EventArgs e)

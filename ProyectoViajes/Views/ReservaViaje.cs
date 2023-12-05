@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoViajes.Controls;
 using static ProyectoViajes.Controls.ControladorInicioSesion;
 
 namespace ProyectoViajes.Views
@@ -17,6 +18,8 @@ namespace ProyectoViajes.Views
         {
             InitializeComponent();
         }
+        
+        ControladorReserva cr = new ControladorReserva();
 
         private void ReservaViaje_Load(object sender, EventArgs e)
         {
@@ -24,6 +27,11 @@ namespace ProyectoViajes.Views
             txtUsuario.Text = usuarioActual;
             fechaIda.MinDate = DateTime.Now;
             fechaVuelta.MinDate = DateTime.Now.AddDays(1);
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            cr.realizarReserva(txtUsuario, selectDestino, nroPersonas, fechaIda, fechaVuelta, this);
         }
     }
 }
