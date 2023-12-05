@@ -42,6 +42,7 @@ namespace ProyectoViajes.Controls
 
 
 
+        // Lee usuarios desde el archivo XML y devuelve la lista
         public List<Usuario> leerXML()
         {
             string archivo;
@@ -51,26 +52,24 @@ namespace ProyectoViajes.Controls
                 archivo = xml;
                 using (var reader = new StringReader(xml))
                 {
-                    XmlSerializer serializer = new
-                    XmlSerializer(ListaDatosUsuarios.listaUsuarios.GetType());
+                    XmlSerializer serializer = new XmlSerializer(ListaDatosUsuarios.listaUsuarios.GetType());
                     ListaDatosUsuarios.listaUsuarios = (List<Usuario>)serializer.Deserialize(reader);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error leyendo xml " + e.Message);
+                Console.WriteLine("Error leyendo XML: " + e.Message);
             }
             return ListaDatosUsuarios.listaUsuarios;
         }
 
-       
+        // Valida el usuario y contraseña, inicia sesión y muestra el formulario principal
         public void validarUsuario(string usuario, string pass, InicioSesion inis)
         {
-            
             int contador = InicioSesion.contador;
 
             int posicion = leerXML().FindIndex(x => x.User == usuario);
-            if (posicion != -1 && leerXML()[posicion].Pass == pass || (usuario=="admin" && leerXML()[posicion].Pass == "1234"))
+            if (posicion != -1 && leerXML()[posicion].Pass == pass || (usuario == "admin" && leerXML()[posicion].Pass == "1234"))
             {
                 inis.Hide();
                 Principal pr = new Principal();
@@ -98,12 +97,13 @@ namespace ProyectoViajes.Controls
             InicioSesion.contador = contador;
         }
 
-
+        // Clase para almacenar la lista global de usuarios
         public static class ListaDatosUsuarios
         {
             public static List<Usuario> listaUsuarios = new List<Usuario>();
         }
 
+        // Clase para gestionar la sesión del usuario
         public static class SesionUsuario
         {
             public static string UsuarioActual { get; private set; }
@@ -118,9 +118,5 @@ namespace ProyectoViajes.Controls
                 UsuarioActual = null;
             }
         }
-
-
     }
-
-
 }

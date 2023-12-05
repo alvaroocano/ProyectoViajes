@@ -62,5 +62,15 @@ namespace ProyectoViajes.Views
         {
             cm.borrarUsuario(this);
         }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cm.modificarReserva(this);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.borrarReservas(this);
+        }
     }
 }

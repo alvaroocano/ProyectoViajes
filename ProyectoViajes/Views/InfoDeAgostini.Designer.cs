@@ -40,7 +40,6 @@
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
@@ -165,30 +164,25 @@
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearToolStripMenuItem1,
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
-            this.empleadosToolStripMenuItem.Text = "Empleados";
-            // 
-            // crearToolStripMenuItem1
-            // 
-            this.crearToolStripMenuItem1.Name = "crearToolStripMenuItem1";
-            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
-            this.crearToolStripMenuItem1.Text = "Crear";
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.empleadosToolStripMenuItem.Text = "Reservas";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
             this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem1.Text = "Modificar";
+            this.modificarToolStripMenuItem1.Click += new System.EventHandler(this.modificarToolStripMenuItem1_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // InfoDeAgostini
             // 
@@ -201,6 +195,8 @@
             this.Name = "InfoDeAgostini";
             this.Text = "InfoDeAgostini";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InfoDeAgostini_FormClosed);
+            this.Load += new System.EventHandler(this.InfoDeAgostini_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoDeAgostini)).EndInit();
@@ -224,7 +220,6 @@
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }

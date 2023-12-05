@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             this.titulo = new System.Windows.Forms.Label();
-            this.groupBox = new System.Windows.Forms.GroupBox();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,16 +53,6 @@
             this.titulo.TabIndex = 4;
             this.titulo.Text = "Usuarios";
             // 
-            // groupBox
-            // 
-            this.groupBox.Location = new System.Drawing.Point(40, 119);
-            this.groupBox.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox.Size = new System.Drawing.Size(917, 326);
-            this.groupBox.TabIndex = 5;
-            this.groupBox.TabStop = false;
-            // 
             // menuStrip
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -72,7 +61,7 @@
             this.empleadosToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(996, 28);
+            this.menuStrip.Size = new System.Drawing.Size(996, 30);
             this.menuStrip.TabIndex = 18;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -83,7 +72,7 @@
             this.modificarToolStripMenuItem,
             this.borrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // crearToolStripMenuItem
@@ -110,30 +99,25 @@
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearToolStripMenuItem1,
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(62, 26);
             this.empleadosToolStripMenuItem.Text = "Viajes";
-            // 
-            // crearToolStripMenuItem1
-            // 
-            this.crearToolStripMenuItem1.Name = "crearToolStripMenuItem1";
-            this.crearToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
-            this.crearToolStripMenuItem1.Text = "Crear";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
             this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem1.Text = "Modificar";
+            this.modificarToolStripMenuItem1.Click += new System.EventHandler(this.modificarToolStripMenuItem1_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -146,14 +130,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(87, 120);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(866, 315);
+            this.panel1.TabIndex = 19;
+            // 
             // BorrarUsuariosAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 565);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.titulo);
             this.Name = "BorrarUsuariosAdmin";
             this.Text = "BorrarUsuariosAdmin";
@@ -168,16 +159,15 @@
         #endregion
 
         private System.Windows.Forms.Label titulo;
-        private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

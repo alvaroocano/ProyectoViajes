@@ -55,5 +55,13 @@ namespace ProyectoViajes.Controls
             mr.ShowDialog();
         }
 
+        public void borrarReservas(Form form)
+        {
+            BorrarReservasAdmin mr = new BorrarReservasAdmin();
+            form.Hide();
+            form.Close();
+            mr.ShowDialog();
+        }
+
     }
 }

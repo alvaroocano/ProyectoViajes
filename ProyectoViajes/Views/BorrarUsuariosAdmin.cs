@@ -23,7 +23,7 @@ namespace ProyectoViajes.Views
         ControladorUsuariosAdmin cua = new ControladorUsuariosAdmin();  
         private void BorrarUsuariosAdmin_Load(object sender, EventArgs e)
         {
-            cb.cargarUsuarios(ListaDatosUsuarios.listaUsuarios, groupBox);
+            cb.cargarUsuarios(ListaDatosUsuarios.listaUsuarios, panel1);
         }
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -42,7 +42,17 @@ namespace ProyectoViajes.Views
 
         private void button1_Click(object sender, EventArgs e)
         {
-            cb.borrarCheckBoxes(groupBox);
+            cb.borrarCheckBoxes(panel1);
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cm.modificarReserva(this);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.borrarReservas(this);    
         }
     }
 }

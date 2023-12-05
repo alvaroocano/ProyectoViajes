@@ -17,15 +17,15 @@ namespace ProyectoViajes.Controls
 {
     internal class ControladorRegistro
     {
-
+        // Carga el usuario administrador predeterminado en la lista global
         public void cargarUsuarios()
         {
             DateTime fechaActual = DateTime.Now;
             string fechaFormateada = fechaActual.ToString("yyyy-MM-dd");
             ListaDatosUsuarios.listaUsuarios.Add(new Usuario(1, "admin", "1234", "admin@admin.com", fechaFormateada));
-
         }
 
+        // Lee la lista de usuarios desde el archivo XML y la devuelve
         public List<Usuario> leerXML()
         {
             try
@@ -39,23 +39,23 @@ namespace ProyectoViajes.Controls
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error leyendo xml " + e.Message);
+                Console.WriteLine("Error leyendo XML: " + e.Message);
                 return new List<Usuario>();
             }
         }
 
-
+        // Escribe la lista completa de usuarios en el archivo XML
         public void escribirXML()
         {
             try
             {
-                // Obtener la lista actual de usuarios (usando la lista global)
+                // Obtiene la lista actual de usuarios (utilizando la lista global)
                 List<Usuario> usuariosActuales = ListaDatosUsuarios.listaUsuarios;
 
-                // Verificar si el usuario "admin" ya está presente
+                // Verifica si el usuario "admin" ya está presente
                 if (!usuariosActuales.Any(u => u.User == "admin"))
                 {
-                    // Agregar al usuario "admin" si no está presente
+                    // Agrega al usuario "admin" si no está presente
                     DateTime fechaActual = DateTime.Now;
                     string fechaFormateada = fechaActual.ToString("yyyy-MM-dd");
                     usuariosActuales.Add(new Usuario(1, "admin", "1234", "admin@admin.com", fechaFormateada));
@@ -72,49 +72,49 @@ namespace ProyectoViajes.Controls
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error escribiendo xml " + e.Message);
+                Console.WriteLine("Error escribiendo XML: " + e.Message);
             }
         }
 
+        // Verifica si la fecha de nacimiento indica que el usuario es mayor de edad
         public bool EsMayorDeEdad(DateTime fecha)
         {
-            // Calcular la edad
             int edad = DateTime.Now.Year - fecha.Year;
 
-            // Ajustar la edad si aún no ha pasado el cumpleaños de este año
             if (DateTime.Now < fecha.AddYears(edad))
             {
                 edad--;
             }
 
-            // Verificar si la edad es 18 o más
             return edad >= 18;
         }
 
+        // Obtiene el último Id de usuario registrado en la lista global
         private int ObtenerUltimoId()
         {
-            // Obtén el último Id de usuario registrado en la lista
             if (ListaDatosUsuarios.listaUsuarios.Count > 0)
             {
                 return ListaDatosUsuarios.listaUsuarios.Max(u => u.Id);
             }
             else
             {
-                return 0; // Si no hay usuarios registrados, devuelve 0 como base
+                return 0;
             }
         }
 
+        // Valida los datos del nuevo usuario y lo registra
         public void validarUsuario(TextBox nombre, TextBox pass, TextBox correo, DateTimePicker fechaNacimiento, TextBox errorEdad, Form form, Form form1)
         {
             bool todoBien = true;
 
+            // Validaciones para el nombre
             if (nombre.Text.Equals(""))
             {
                 nombre.BackColor = Color.Red;
                 todoBien = false;
                 MessageBox.Show("El nombre no puede estar vacío");
-
-            }else if(!Regex.IsMatch(nombre.Text, "[a-zA-z]+$"))
+            }
+            else if (!Regex.IsMatch(nombre.Text, "[a-zA-z]+$"))
             {
                 nombre.BackColor = Color.Red;
                 todoBien = false;
@@ -127,6 +127,7 @@ namespace ProyectoViajes.Controls
                 MessageBox.Show("El nombre no puede tener más de 8 caracteres");
             }
 
+            // Validaciones para la contraseña
             if (pass.Text.Equals(""))
             {
                 pass.BackColor = Color.Red;
@@ -140,6 +141,7 @@ namespace ProyectoViajes.Controls
                 MessageBox.Show("La contraseña no puede contener más de 20 caracteres");
             }
 
+            // Validaciones para el correo
             if (correo.Text.Equals(""))
             {
                 correo.BackColor = Color.Red;
@@ -151,22 +153,22 @@ namespace ProyectoViajes.Controls
                 correo.BackColor = Color.Red;
                 todoBien = false;
                 MessageBox.Show("El correo no es válido");
-
             }
 
-            for(int i = 0;i<ListaDatosUsuarios.listaUsuarios.Count;i++)
+            // Verifica si el correo ya ha sido registrado
+            for (int i = 0; i < ListaDatosUsuarios.listaUsuarios.Count; i++)
             {
                 if (correo.Text.Equals(ListaDatosUsuarios.listaUsuarios[i].Correo))
                 {
-                    correo.BackColor = Color.Red; 
+                    correo.BackColor = Color.Red;
                     todoBien = false;
-                    MessageBox.Show("El correo ya ha sido registrado, porfavor, inicie sesión");
+                    MessageBox.Show("El correo ya ha sido registrado, por favor, inicie sesión");
                 }
             }
-            
 
             DateTime fechaSeleccionada = fechaNacimiento.Value;
 
+            // Verifica si el usuario es mayor de edad
             if (!EsMayorDeEdad(fechaSeleccionada))
             {
                 errorEdad.Show();
@@ -179,7 +181,7 @@ namespace ProyectoViajes.Controls
 
             if (todoBien)
             {
-                // Obtén el último Id de usuario registrado
+                // Obtiene el último Id de usuario registrado
                 int ultimoId = ObtenerUltimoId();
 
                 // Incrementa el Id en 1 para obtener el nuevo Id
@@ -200,17 +202,19 @@ namespace ProyectoViajes.Controls
             }
         }
 
+        // Cambia el color de fondo de una caja de texto a blanco
         public void volverBlanco(TextBox caja)
         {
             caja.BackColor = Color.White;
         }
 
-        public void volverAIniSes(Registro reg,InicioSesion inis)
+        // Vuelve al formulario de inicio de sesión desde el formulario de registro
+        public void volverAIniSes(Registro reg, InicioSesion inis)
         {
             reg.Hide();
             reg.Close();
             inis.ShowDialog();
         }
-
     }
+
 }

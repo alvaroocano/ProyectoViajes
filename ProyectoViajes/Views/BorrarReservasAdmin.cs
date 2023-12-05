@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoViajes.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,24 +8,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoViajes.Controls;
-using static ProyectoViajes.Controls.ControladorReserva;
 
 namespace ProyectoViajes.Views
 {
-    public partial class InfoReserva : Form
+    public partial class BorrarReservasAdmin : Form
     {
-        public InfoReserva()
+        public BorrarReservasAdmin()
         {
             InitializeComponent();
         }
 
-        ControladorReserva cr = new ControladorReserva();
+        ControladorBorrarReservas cbr = new ControladorBorrarReservas();
         ControladorMenu cm = new ControladorMenu();
-
-        private void InfoReserva_Load(object sender, EventArgs e)
+        private void BorrarReservasAdmin_Load(object sender, EventArgs e)
         {
-            cr.crearReservas(groupBox);
+            cbr.crearReservas(panel1);
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            cbr.borrarCheckBoxes(panel1);
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace ProyectoViajes.Views
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cm.modificarReserva(this);
+            cm.infoUsuarios(this);
         }
 
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,14 +45,14 @@ namespace ProyectoViajes.Views
             cm.borrarUsuario(this);
         }
 
+        private void crearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cm.borrarReservas(this);
+        }
+
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cm.modificarReserva(this);
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
         }
     }
 }

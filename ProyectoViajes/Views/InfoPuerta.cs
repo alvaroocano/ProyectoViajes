@@ -39,5 +39,29 @@ namespace ProyectoViajes.Views
         {
             cm.reserva(this);
         }
+
+        ControladorPrincipal cp = new ControladorPrincipal();
+        public bool isAdmin;
+        private void InfoPuerta_Load(object sender, EventArgs e)
+        {
+            
+            cp.esconderMenu(menuStrip, isAdmin);
+        }
+
+        private void InfoPuerta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Principal pr = new Principal();
+            pr.ShowDialog();
+        }
+
+        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cm.modificarReserva(this);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cm.borrarReservas(this);
+        }
     }
 }
