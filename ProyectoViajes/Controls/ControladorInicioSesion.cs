@@ -63,9 +63,10 @@ namespace ProyectoViajes.Controls
             return ListaDatosUsuarios.listaUsuarios;
         }
 
-        
+       
         public void validarUsuario(string usuario, string pass, InicioSesion inis)
         {
+            
             int contador = InicioSesion.contador;
 
             int posicion = leerXML().FindIndex(x => x.User == usuario);
@@ -117,6 +118,7 @@ namespace ProyectoViajes.Controls
                 UsuarioActual = null;
             }
         }
+
 
     }
 

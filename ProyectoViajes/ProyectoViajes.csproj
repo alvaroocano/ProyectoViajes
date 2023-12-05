@@ -134,6 +134,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\InfoReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InfoReserva.Designer.cs">
+      <DependentUpon>InfoReserva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModificarReserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModificarReserva.Designer.cs">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ModificarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InfoReserva.resx">
+      <DependentUpon>InfoReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModificarReserva.resx">
+      <DependentUpon>ModificarReserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModificarUsuario.resx">
       <DependentUpon>ModificarUsuario.cs</DependentUpon>

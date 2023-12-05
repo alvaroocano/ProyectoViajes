@@ -8,14 +8,23 @@ namespace ProyectoViajes.Models
 {
     internal class Reserva
     {
+        private int id;
         private String usuario;
         private String destino;
         private int nroPersonas;
         private String fechaIda;
         private String fechaVuelta;
 
-        public Reserva(string usuario, string destino, int nroPersonas, String fechaIda, String fechaVuelta)
+
+
+        public Reserva()
         {
+
+        }
+
+        public Reserva(int id, string usuario, string destino, int nroPersonas, string fechaIda, string fechaVuelta)
+        {
+            this.Id = id;
             this.Usuario = usuario;
             this.Destino = destino;
             this.NroPersonas = nroPersonas;
@@ -23,16 +32,12 @@ namespace ProyectoViajes.Models
             this.FechaVuelta = fechaVuelta;
         }
 
-        public Reserva()
-        {
-
-        }
-
+        public int Id { get => id; set => id = value; }
         public string Usuario { get => usuario; set => usuario = value; }
         public string Destino { get => destino; set => destino = value; }
         public int NroPersonas { get => nroPersonas; set => nroPersonas = value; }
-        public String FechaIda { get => fechaIda; set => fechaIda = value; }
-        public String FechaVuelta { get => fechaVuelta; set => fechaVuelta = value; }
+        public string FechaIda { get => fechaIda; set => fechaIda = value; }
+        public string FechaVuelta { get => fechaVuelta; set => fechaVuelta = value; }
     }
 
     

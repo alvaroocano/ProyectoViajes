@@ -25,8 +25,11 @@ namespace ProyectoViajes.Views
         {
             string usuarioActual = SesionUsuario.UsuarioActual;
             txtUsuario.Text = usuarioActual;
+            
             fechaIda.MinDate = DateTime.Now;
+            fechaIda.Value = DateTime.Now;
             fechaVuelta.MinDate = DateTime.Now.AddDays(1);
+            fechaVuelta.Value = DateTime.Now.AddDays(1);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

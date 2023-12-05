@@ -47,5 +47,13 @@ namespace ProyectoViajes.Controls
             rv.ShowDialog();
         }
 
+        public void modificarReserva(Form form)
+        {
+            InfoReserva mr = new InfoReserva();
+            form.Hide();
+            form.Close();
+            mr.ShowDialog();
+        }
+
     }
 }
