@@ -73,7 +73,7 @@ namespace ProyectoViajes.Controls
             
         }
 
-        public void modificarUsuario(TextBox nombre, TextBox correo, TextBox fecha, int id, Form form1, Form form2)
+        public void modificarUsuario(TextBox nombre, TextBox correo, DateTimePicker fecha, int id, Form form1, Form form2)
         {
            
             var usuarioAModificar = ListaDatosUsuarios.listaUsuarios.FirstOrDefault(x => x.Id.Equals(id));
@@ -116,23 +116,13 @@ namespace ProyectoViajes.Controls
 
                 }
 
-                
-
-                if (fecha.Text == "")
-                {
-                    fecha.BackColor = Color.Red;
+                 DateTime fechaBien = fecha.Value;
+                 if (!cr.EsMayorDeEdad(fechaBien))
+                 {
+                    MessageBox.Show("Debe ser mayor de edad");
                     todoBien = false;
-                    MessageBox.Show("La fecha no puede estar vacío");
-                }
-                else
-                {
-                   DateTime fechaBien = DateTime.ParseExact(fecha.Text, "dd-MM-yyyy", null);
-                    if (!cr.EsMayorDeEdad(fechaBien))
-                    {
-                        MessageBox.Show("Debe ser mayor de edad");
-                        todoBien = false;
-                    }
-                }
+                 }
+                
 
                 if (todoBien)
                 {

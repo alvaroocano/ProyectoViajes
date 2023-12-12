@@ -26,8 +26,6 @@ namespace ProyectoViajes.Views
         {
             selectDestino.Text = destino.ToString();
             numPersonas.Value = nroPersonas;
-            txtFechaIda.Text = fechaIda.ToString();
-            txtFechaVuelta.Text = fechaVuelta.ToString();
             idReserva = id;
             
         }
@@ -35,12 +33,16 @@ namespace ProyectoViajes.Views
         private void ModificarReserva_Load(object sender, EventArgs e)
         {
             selectDestino.Select();
+            fechaIda.MinDate = DateTime.Now;
+            fechaIda.Value = DateTime.Now;
+            fechaVuelta.MinDate = DateTime.Now.AddDays(1);
+            fechaVuelta.Value = DateTime.Now.AddDays(1);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             InfoReserva ir = new InfoReserva();
-            cr.modificarReserva(idReserva, selectDestino.Text, numPersonas, txtFechaIda.Text, txtFechaVuelta.Text, this, ir);
+            cr.modificarReserva(idReserva, selectDestino.Text, numPersonas, fechaIda.Value, fechaVuelta.Value, this, ir);
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)

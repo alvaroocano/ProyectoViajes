@@ -159,7 +159,7 @@ namespace ProyectoViajes.Controls
         }
 
         // Modifica una reserva existente
-        public void modificarReserva(int id, string destino, NumericUpDown nroPersonas, string fechaIda, string fechaVuelta, Form form1, Form form2)
+        public void modificarReserva(int id, string destino, NumericUpDown nroPersonas, DateTime fechaIda, DateTime fechaVuelta, Form form1, Form form2)
         {
             List<Reserva> listaReservas = leerJSON(ListaDatosReservas.listaReservas);
 
@@ -173,8 +173,9 @@ namespace ProyectoViajes.Controls
 
             reservaExistente.Destino = destino;
             reservaExistente.NroPersonas = (int)nroPersonas.Value;
-            reservaExistente.FechaIda = fechaIda;
-            reservaExistente.FechaVuelta = fechaVuelta;
+            reservaExistente.FechaIda = fechaIda.ToString("yyyy-MM-dd");
+            reservaExistente.FechaVuelta = fechaVuelta.ToString("yyyy-MM-dd");
+            ListaDatosReservas.listaReservas.Add(reservaExistente);
 
             MessageBox.Show("Reserva modificada con éxito");
 
@@ -185,17 +186,18 @@ namespace ProyectoViajes.Controls
         }
 
         // Verifica si la fecha de vuelta es válida
-        private bool EsFechaVueltaValida(string fechaIda, string fechaVuelta)
+        private bool EsFechaVueltaValida(DateTime fechaIda, DateTime fechaVuelta)
         {
-            DateTime fechaIdaDateTime, fechaVueltaDateTime;
-            if (!DateTime.TryParse(fechaIda, out fechaIdaDateTime) || !DateTime.TryParse(fechaVuelta, out fechaVueltaDateTime))
+            if (fechaVuelta > fechaIda)
             {
-                MessageBox.Show("Error al convertir las fechas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+            else
+            {
                 return false;
             }
-
-            return fechaVueltaDateTime > fechaIdaDateTime;
         }
+
 
         // Clase estática para almacenar la lista de reservas
         public static class ListaDatosReservas

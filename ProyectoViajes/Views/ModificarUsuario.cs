@@ -30,13 +30,12 @@ namespace ProyectoViajes.Views
         {
             textBoxUser.Text = user.ToString();
             textBoxEmail.Text = email.ToString();
-            textBoxFecha.Text = fecha.ToString();
             idGlobal = id;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            ciu.modificarUsuario(textBoxUser, textBoxEmail, textBoxFecha, idGlobal,this, info);
+            ciu.modificarUsuario(textBoxUser, textBoxEmail, fechaNacimiento, idGlobal,this, info);
         }
 
         private void textBoxUser_TextChanged(object sender, EventArgs e)
@@ -54,14 +53,12 @@ namespace ProyectoViajes.Views
             cr.volverBlanco(textBoxEmail);
         }
 
-        private void textBoxFecha_Click(object sender, EventArgs e)
-        {
-            cr.volverBlanco(textBoxFecha);
-        }
+        
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-            
+            fechaNacimiento.MaxDate = DateTime.Now;
+            fechaNacimiento.Value = DateTime.Now;
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
