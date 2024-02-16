@@ -44,7 +44,6 @@ namespace ProyectoViajes.Views
         public bool isAdmin;
         private void InfoPuerta_Load(object sender, EventArgs e)
         {
-            
             cp.esconderMenu(menuStrip, isAdmin);
         }
 
@@ -62,6 +61,20 @@ namespace ProyectoViajes.Views
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cm.borrarReservas(this);
+        }
+
+        private void splitContainer1_Resize(object sender, EventArgs e)
+        {
+            
+            pictureBox1.Location = new Point(
+                (splitContainer1.Panel1.Width - pictureBox1.Width) / 2,
+                (splitContainer1.Panel1.Height - pictureBox1.Height) / 2
+            );
+        }
+
+        private void textoDeAgostini_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="fotoPuerta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsN
         DhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQU
@@ -2569,7 +2572,7 @@
         U3NFLmC5/9k=
 </value>
   </data>
-  <data name="textoPuerta.Text" xml:space="preserve">
+  <data name="textoDeAgostini.Text" xml:space="preserve">
     <value>En las vastas extensiones del universo, se encuentra un diminuto rincón cósmico que emana una acogedora serenidad. Este pequeño planeta, envuelto en una atmósfera de calma y quietud, es un refugio para aquellos que buscan un respiro del ajetreo del cosmos. Su escala íntima es testigo de una abundante naturaleza que florece en armonía, convirtiéndolo en un paraíso terrenal de paz.
 
 Este apacible mundo, caracterizado por su tamaño modesto, se erige como un santuario para los buscadores de tranquilidad. Sus suaves colinas y prados extensos son el hogar de una variada flora y fauna, cada criatura y planta contribuyendo a la sinfonía natural que llena el aire. Bajo la luz suave del sol, este rincón celestial invita a la relajación y al reencuentro con la esencia pura de la existencia.
@@ -2578,7 +2581,4 @@ Ideal para aquellos que anhelan descansar y rejuvenecer, este pequeño planeta o
 
 En este santuario de paz, la armonía entre la tierra y el cielo se manifiesta de manera sublime. Las noches estrelladas pintan el firmamento con destellos de luz, mientras la suave brisa acaricia suavemente la piel. Este pequeño rincón celestial, en su modestia, se revela como un tesoro escondido para aquellos que buscan experimentar la plenitud de la paz en medio de la vastedad cósmica.</value>
   </data>
-  <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

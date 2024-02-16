@@ -41,7 +41,6 @@ namespace ProyectoViajes.Views
         {
             InfoNamek infNam = new InfoNamek();
             this.Hide();
-            this.Close();
             infNam.ShowDialog();
         }
 
@@ -49,7 +48,6 @@ namespace ProyectoViajes.Views
         {
             InfoPuerta infPu = new InfoPuerta();
             this.Hide();
-            this.Close();
             infPu.ShowDialog();
         }
 
@@ -57,7 +55,6 @@ namespace ProyectoViajes.Views
         {
             InfoDeAgostini infDA = new InfoDeAgostini();
             this.Hide();
-            this.Close();
             infDA.ShowDialog();
         }
 
@@ -104,6 +101,11 @@ namespace ProyectoViajes.Views
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cm.borrarReservas(this);
+        }
+
+        private void Principal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
