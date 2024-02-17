@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -118,5 +119,43 @@ namespace ProyectoViajes.Controls
                 UsuarioActual = null;
             }
         }
+
+        ControladorBBDD cbbdd = new ControladorBBDD();
+
+        public bool validarCredenciales(string usuario, string contraseña)
+        {
+            // Cadena de conexión a la base de datos
+            string connectionString = cbbdd.construirCadenaConexión();
+
+            // Query para buscar un usuario con el nombre y contraseña proporcionados
+            string query = "SELECT COUNT(*) FROM Usuarios WHERE [user] = @Usuario AND pass = @Contraseña";
+
+            // Variable para almacenar el resultado de la consulta
+            int count;
+
+            // Crear la conexión
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Abrir la conexión
+                connection.Open();
+
+                // Crear un objeto SqlCommand con la consulta y la conexión
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Agregar parámetros y sus valores
+                    command.Parameters.AddWithValue("@Usuario", usuario);
+                    command.Parameters.AddWithValue("@Contraseña", contraseña);
+
+                    // Ejecutar la consulta y obtener el resultado
+                    count = (int)command.ExecuteScalar();
+                }
+            }
+
+            // Si count es mayor que cero, se encontró un usuario con el nombre y contraseña proporcionados
+            return count > 0;
+        }
+
+
+
     }
 }

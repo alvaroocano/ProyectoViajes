@@ -51,7 +51,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(508, 15);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(149, 144);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -74,9 +74,9 @@
             this.groupBoxInicioSesion.Controls.Add(this.lblUsuario);
             this.groupBoxInicioSesion.Font = new System.Drawing.Font("Microsoft Yi Baiti", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxInicioSesion.Location = new System.Drawing.Point(328, 192);
-            this.groupBoxInicioSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxInicioSesion.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxInicioSesion.Name = "groupBoxInicioSesion";
-            this.groupBoxInicioSesion.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxInicioSesion.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxInicioSesion.Size = new System.Drawing.Size(484, 395);
             this.groupBoxInicioSesion.TabIndex = 3;
             this.groupBoxInicioSesion.TabStop = false;
@@ -90,7 +90,7 @@
             this.edadError.Font = new System.Drawing.Font("Microsoft Yi Baiti", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edadError.ForeColor = System.Drawing.Color.Red;
             this.edadError.Location = new System.Drawing.Point(147, 260);
-            this.edadError.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.edadError.Margin = new System.Windows.Forms.Padding(4);
             this.edadError.Name = "edadError";
             this.edadError.Size = new System.Drawing.Size(329, 20);
             this.edadError.TabIndex = 10;
@@ -102,8 +102,8 @@
             this.fechaNacimiento.Font = new System.Drawing.Font("MS Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaNacimiento.Location = new System.Drawing.Point(180, 217);
-            this.fechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.fechaNacimiento.MaxDate = new System.DateTime(2023, 11, 22, 0, 0, 0, 0);
+            this.fechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
+            this.fechaNacimiento.MaxDate = new System.DateTime(2024, 2, 17, 0, 0, 0, 0);
             this.fechaNacimiento.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.fechaNacimiento.Name = "fechaNacimiento";
             this.fechaNacimiento.Size = new System.Drawing.Size(169, 26);
@@ -125,7 +125,7 @@
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(180, 42);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.MaxLength = 10;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(169, 28);
@@ -148,7 +148,7 @@
             this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Location = new System.Drawing.Point(180, 149);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.MaxLength = 50;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(251, 28);
@@ -160,7 +160,7 @@
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(273, 313);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(121, 53);
             this.btnCancelar.TabIndex = 6;
@@ -171,7 +171,7 @@
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Consolas", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Location = new System.Drawing.Point(116, 311);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(117, 53);
             this.btnAceptar.TabIndex = 5;
@@ -184,7 +184,7 @@
             this.txtContrasena.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Yi Baiti", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.Location = new System.Drawing.Point(180, 98);
-            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(4);
             this.txtContrasena.MaxLength = 20;
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '·';
@@ -239,7 +239,7 @@
             this.Controls.Add(this.groupBoxInicioSesion);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrarse";

@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BaseDatosViajesDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ControladorBBDD.cs" />
     <Compile Include="Controls\ControladorBorrar.cs" />
     <Compile Include="Controls\ControladorBorrarReservas.cs" />
     <Compile Include="Controls\ControladorContacto.cs" />

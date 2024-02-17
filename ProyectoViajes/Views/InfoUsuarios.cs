@@ -27,7 +27,23 @@ namespace ProyectoViajes.Views
 
         private void InfoUsuarios_Load(object sender, EventArgs e)
         {
-            ciu.crearUsuarios(ListaDatosUsuarios.listaUsuarios, groupBox);
+            DataTable dtUsuarios = ciu.obtenerUsuarios();
+
+            if (dtUsuarios.Rows.Count > 0)
+            {
+                // Hay datos disponibles, enlaza el DataGridView con el DataTable
+                dataGridView1.DataSource = dtUsuarios;
+            }
+            else
+            {
+                // No hay datos disponibles, muestra un mensaje informativo
+                Label lblMensaje = new Label();
+                lblMensaje.Text = "No hay datos disponibles.";
+                lblMensaje.TextAlign = ContentAlignment.MiddleCenter;
+                lblMensaje.AutoSize = false;
+                lblMensaje.Dock = DockStyle.Fill;
+                Controls.Add(lblMensaje);
+            }
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,12 +53,12 @@ namespace ProyectoViajes.Views
 
         private void txtFiltrar_KeyUp(object sender, KeyEventArgs e)
         {
-            ciu.filtrar(groupBox, txtFiltrar);
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ciu.ordenar(comboBox1.Text, groupBox);
+            
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,5 +85,6 @@ namespace ProyectoViajes.Views
         {
             cm.borrarReservas(this);
         }
+
     }
 }

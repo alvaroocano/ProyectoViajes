@@ -11,6 +11,8 @@ using System.Xml.Serialization;
 using ProyectoViajes.Views;
 using System.Drawing;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace ProyectoViajes.Controls
 {
@@ -181,7 +183,40 @@ namespace ProyectoViajes.Controls
             }
         }
 
+        private string construirCadenaConexión()
+        {
+            // Directorio del archivo de base de datos relativo al directorio de ejecución
+            string databaseFileName = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\BaseDatosViajes.mdf"));
+            // Cadena de conexión
+            string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename ={databaseFileName}; Integrated Security = True";
+            // Usar la cadena de conexión
+            return connectionString;
+        }
 
+        public DataTable obtenerUsuarios()
+        {
+            DataTable dtUsuarios = new DataTable();
+
+            // Cadena de conexión a la base de datos
+            string connectionString = construirCadenaConexión();
+            // Query para seleccionar todos los registros de la tabla Proyectos
+            string query = "SELECT * FROM Proyectos";
+
+            // Crear la conexión
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Abrir la conexión
+                connection.Open();
+                // Crear un adaptador de datos y ejecutar la consulta
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    // Llenar el DataTable con los resultados de la consulta
+                    adapter.Fill(dtUsuarios);
+                }
+            }
+
+            return dtUsuarios;
+        }
 
     }
 

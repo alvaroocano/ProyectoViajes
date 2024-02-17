@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -102,6 +103,52 @@ namespace ProyectoViajes.Controls
             }
         }
 
+        
+        ControladorBBDD cbbdd = new ControladorBBDD();
+        public void insertarUsuario(TextBox user, TextBox pass, TextBox correo, DateTimePicker fechaNacimiento)
+        {
+            // Cadena de conexión a la base de datos
+            // Ver método construirCadenaConexión más arriba
+            string connectionString = cbbdd.construirCadenaConexión();
+            // Query de inserción
+            string query = "INSERT INTO Usuarios ([user], pass, correo, fechaNacimiento) VALUES (@User, @Pass, @Correo, @FechaNacimiento)";
+            // Valores para los parámetros
+            string usuario = user.Text;
+            string password = pass.Text;
+            string correoE = correo.Text;
+            string fechaNac = Convert.ToString(fechaNacimiento.Value);
+
+            // Crear la conexión
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Abrir la conexión
+                connection.Open();
+                // Crear un objeto SqlCommand con la consulta y la conexión
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Agregar parámetros y sus valores
+                    // No se añade a la inserción el campo código proyecto porque es autonumérico, aunque se puede configurar para poder
+                    // insertarlo a la fuerza.
+                    command.Parameters.AddWithValue("@User", usuario);
+                    command.Parameters.AddWithValue("@Pass", password);
+                    command.Parameters.AddWithValue("@Correo", correoE);
+                    command.Parameters.AddWithValue("@FechaNacimiento", fechaNac);
+                    try
+                    {
+                        // Ejecutar la consulta de inserción
+                        int registrosAfectados = command.ExecuteNonQuery();
+                        MessageBox.Show($"Se insertó correctamente el registro. Registros afectados: {registrosAfectados}");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al insertar el registro: {ex.Message}");
+                    }
+                }
+            }
+
+        }
+
+
         // Valida los datos del nuevo usuario y lo registra
         public void validarUsuario(TextBox nombre, TextBox pass, TextBox correo, DateTimePicker fechaNacimiento, TextBox errorEdad, Form form, Form form1)
         {
@@ -193,9 +240,7 @@ namespace ProyectoViajes.Controls
                 string fechaFormateada = fecha.ToString("yyyy-MM-dd");
 
                 // Utiliza el nuevo Id al registrar el nuevo usuario
-                Usuario us = new Usuario(nuevoId, nombre.Text, pass.Text.GetHashCode().ToString(), correo.Text, fechaFormateada);
-                ListaDatosUsuarios.listaUsuarios.Add(us);
-                escribirXML();
+                insertarUsuario(nombre, pass, correo, fechaNacimiento);
                 form.Hide();
                 form.Close();
                 form1.ShowDialog();

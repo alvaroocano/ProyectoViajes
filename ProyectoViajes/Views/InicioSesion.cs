@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoViajes.Controls;
+using ProyectoViajes.Views;
 
 namespace ProyectoViajes
 {
@@ -37,10 +38,34 @@ namespace ProyectoViajes
         }
 
         public static int contador = 0;
+        int intentosFallidos = 0;
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cis.validarUsuario(txtUsuario.Text,txtContrasena.Text.GetHashCode().ToString(),this);
-           
+            string usuario = txtUsuario.Text;
+            string contraseña = txtContrasena.Text;
+
+            if (cis.validarCredenciales(usuario, contraseña))
+            {
+                // Las credenciales son válidas, mostrar el formulario deseado
+                Principal pr = new Principal();
+                pr.Show();
+            }
+            else
+            {
+                intentosFallidos++;
+
+                if (intentosFallidos >= 4)
+                {
+                    // Si el usuario introduce mal el usuario y contraseña al cuarto intento, cerrar la aplicación
+                    MessageBox.Show("Has excedido el número máximo de intentos fallidos. La aplicación se cerrará.");
+                    Application.Exit();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.");
+                }
+            }
+
         }
     }
 }
