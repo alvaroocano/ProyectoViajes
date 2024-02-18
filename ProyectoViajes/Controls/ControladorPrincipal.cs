@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoViajes.Models;
 using ProyectoViajes.Views;
 
 namespace ProyectoViajes.Controls
@@ -12,9 +13,10 @@ namespace ProyectoViajes.Controls
     {
     
         ControladorInicioSesion cis = new ControladorInicioSesion();
-        public void esconderMenu(MenuStrip m, bool esAdmin)
+        string nombreUsuario = UsuarioActual.NombreUsuario;
+        public void esconderMenu(MenuStrip m)
         {
-            if (esAdmin)
+            if (nombreUsuario.Equals("admin"))
             {
                 m.Show();
             }

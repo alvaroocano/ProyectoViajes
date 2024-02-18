@@ -39,12 +39,12 @@
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titulo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.baseDatosViajesDataSet = new ProyectoViajes.BaseDatosViajesDataSet();
-            this.baseDatosViajesDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.baseDatosViajesDataSet1 = new ProyectoViajes.BaseDatosViajesDataSet1();
+            this.baseDatosViajesDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -55,7 +55,7 @@
             this.empleadosToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1067, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1067, 30);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -66,7 +66,7 @@
             this.modificarToolStripMenuItem,
             this.borrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // crearToolStripMenuItem
@@ -96,7 +96,7 @@
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.empleadosToolStripMenuItem.Text = "Reservas";
             // 
             // modificarToolStripMenuItem1
@@ -128,23 +128,24 @@
             // 
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.baseDatosViajesDataSetBindingSource;
+            this.dataGridView1.DataSource = this.baseDatosViajesDataSet1BindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(117, 141);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(810, 321);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // baseDatosViajesDataSet
+            // baseDatosViajesDataSet1
             // 
-            this.baseDatosViajesDataSet.DataSetName = "BaseDatosViajesDataSet";
-            this.baseDatosViajesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.baseDatosViajesDataSet1.DataSetName = "BaseDatosViajesDataSet1";
+            this.baseDatosViajesDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // baseDatosViajesDataSetBindingSource
+            // baseDatosViajesDataSet1BindingSource
             // 
-            this.baseDatosViajesDataSetBindingSource.DataSource = this.baseDatosViajesDataSet;
-            this.baseDatosViajesDataSetBindingSource.Position = 0;
+            this.baseDatosViajesDataSet1BindingSource.DataSource = this.baseDatosViajesDataSet1;
+            this.baseDatosViajesDataSet1BindingSource.Position = 0;
             // 
             // InfoUsuarios
             // 
@@ -162,8 +163,8 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,7 +182,7 @@
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.Label titulo;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource baseDatosViajesDataSetBindingSource;
-        private BaseDatosViajesDataSet baseDatosViajesDataSet;
+        private System.Windows.Forms.BindingSource baseDatosViajesDataSet1BindingSource;
+        private BaseDatosViajesDataSet1 baseDatosViajesDataSet1;
     }
 }

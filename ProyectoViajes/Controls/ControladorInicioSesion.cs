@@ -79,6 +79,7 @@ namespace ProyectoViajes.Controls
                 {
                     pr.isAdmin = true;
                 }
+                
                 SesionUsuario.IniciarSesion(usuario);
                 pr.Show();
             }

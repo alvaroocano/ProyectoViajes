@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -85,7 +87,7 @@ namespace ProyectoViajes.Controls
             Reserva nuevaReserva = new Reserva(id, usuario, destino, nroPersonas, fechaIdaFormateada, fechaVueltaFormateada);
             ListaDatosReservas.listaReservas.Add(nuevaReserva);
 
-            escribirJSON();
+            insertarReservas(textBox, comboBox, numericUpDown, dateTimePickerIda, dateTimePickerVuelta);
             MessageBox.Show("Reserva Confirmada");
             form.Close();
         }
@@ -196,6 +198,79 @@ namespace ProyectoViajes.Controls
             {
                 return false;
             }
+        }
+
+        ControladorBBDD cbbdd = new ControladorBBDD();  
+        public void insertarReservas(TextBox usuario, ComboBox destino, NumericUpDown nroPersonas, DateTimePicker fechaIda, DateTimePicker fechaVuelta)
+        {
+            // Cadena de conexión a la base de datos
+            // Ver método construirCadenaConexión más arriba
+            string connectionString = cbbdd.construirCadenaConexión();
+            // Query de inserción
+            string query = "INSERT INTO Reservas (usuario, destino, nroPersonas, fechaIda, fechaVuelta) VALUES (@Usuario, @Destino, @NroPersonas, @FechaIda, @FechaVuelta)";
+            // Valores para los parámetros
+            string usr = usuario.Text;
+            string dest = Convert.ToString(destino.SelectedItem);
+            string nroP = Convert.ToString(nroPersonas.Value);
+            string fechaI = Convert.ToString(fechaIda.Value);
+            string fechaV = Convert.ToString(fechaVuelta.Value);
+
+
+            // Crear la conexión
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Abrir la conexión
+                connection.Open();
+                // Crear un objeto SqlCommand con la consulta y la conexión
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Agregar parámetros y sus valores
+                    // No se añade a la inserción el campo código proyecto porque es autonumérico, aunque se puede configurar para poder
+                    // insertarlo a la fuerza.
+                    command.Parameters.AddWithValue("@Usuario", usr);
+                    command.Parameters.AddWithValue("@Destino", dest);
+                    command.Parameters.AddWithValue("@NroPersonas", nroP);
+                    command.Parameters.AddWithValue("@FechaIda", fechaI);
+                    command.Parameters.AddWithValue("@FechaVuelta", fechaV);
+                    try
+                    {
+                        // Ejecutar la consulta de inserción
+                        int registrosAfectados = command.ExecuteNonQuery();
+                        MessageBox.Show($"Se insertó correctamente el registro. Registros afectados: {registrosAfectados}");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al insertar el registro: {ex.Message}");
+                    }
+                }
+            }
+
+
+        }
+
+        public DataTable obtenerReservas()
+        {
+            DataTable dtProyectos = new DataTable();
+
+            // Cadena de conexión a la base de datos
+            string connectionString = cbbdd.construirCadenaConexión();
+            // Query para seleccionar todos los registros de la tabla Proyectos
+            string query = "SELECT * FROM Reservas";
+
+            // Crear la conexión
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Abrir la conexión
+                connection.Open();
+                // Crear un adaptador de datos y ejecutar la consulta
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                {
+                    // Llenar el DataTable con los resultados de la consulta
+                    adapter.Fill(dtProyectos);
+                }
+            }
+
+            return dtProyectos;
         }
 
 

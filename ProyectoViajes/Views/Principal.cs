@@ -24,7 +24,7 @@ namespace ProyectoViajes.Views
         public bool isAdmin;
         private void Principal_Load(object sender, EventArgs e)
         {
-            cp.esconderMenu(menuStrip,isAdmin);
+            cp.esconderMenu(menuStrip);
         }
 
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)

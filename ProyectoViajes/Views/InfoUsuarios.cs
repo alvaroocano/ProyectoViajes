@@ -22,33 +22,16 @@ namespace ProyectoViajes.Views
             InitializeComponent();
         }
 
-        ControladorUsuariosAdmin ciu = new ControladorUsuariosAdmin();
         ControladorMenu cm = new ControladorMenu();
 
         private void InfoUsuarios_Load(object sender, EventArgs e)
         {
-            DataTable dtUsuarios = ciu.obtenerUsuarios();
-
-            if (dtUsuarios.Rows.Count > 0)
-            {
-                // Hay datos disponibles, enlaza el DataGridView con el DataTable
-                dataGridView1.DataSource = dtUsuarios;
-            }
-            else
-            {
-                // No hay datos disponibles, muestra un mensaje informativo
-                Label lblMensaje = new Label();
-                lblMensaje.Text = "No hay datos disponibles.";
-                lblMensaje.TextAlign = ContentAlignment.MiddleCenter;
-                lblMensaje.AutoSize = false;
-                lblMensaje.Dock = DockStyle.Fill;
-                Controls.Add(lblMensaje);
-            }
+            
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ciu.refrescar(this);
+            
         }
 
         private void txtFiltrar_KeyUp(object sender, KeyEventArgs e)
@@ -86,5 +69,9 @@ namespace ProyectoViajes.Views
             cm.borrarReservas(this);
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

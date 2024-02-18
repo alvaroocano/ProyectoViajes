@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoViajes.Controls;
+using ProyectoViajes.Models;
 using ProyectoViajes.Views;
+using static ProyectoViajes.Controls.ControladorInicioSesion;
 
 namespace ProyectoViajes
 {
@@ -47,6 +49,7 @@ namespace ProyectoViajes
             if (cis.validarCredenciales(usuario, contraseña))
             {
                 // Las credenciales son válidas, mostrar el formulario deseado
+                UsuarioActual.EstablecerNombreUsuario(usuario);
                 Principal pr = new Principal();
                 pr.Show();
             }

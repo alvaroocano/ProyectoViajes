@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoViajes.Controls;
+using ProyectoViajes.Models;
 using static ProyectoViajes.Controls.ControladorInicioSesion;
 
 namespace ProyectoViajes.Views
@@ -23,7 +24,7 @@ namespace ProyectoViajes.Views
 
         private void ReservaViaje_Load(object sender, EventArgs e)
         {
-            string usuarioActual = SesionUsuario.UsuarioActual;
+            string usuarioActual = UsuarioActual.NombreUsuario;
             txtUsuario.Text = usuarioActual;
             
             fechaIda.MinDate = DateTime.Now;

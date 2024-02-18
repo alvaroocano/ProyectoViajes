@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoViajes.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,27 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoViajes.Controls;
-using static ProyectoViajes.Controls.ControladorReserva;
+using ProyectoViajes.BaseDatosViajesDataSet1TableAdapters;
 
 namespace ProyectoViajes.Views
 {
-    public partial class InfoReserva : Form
+    public partial class infoUsuariosBBDD : Form
     {
-        public InfoReserva()
+        public infoUsuariosBBDD()
         {
             InitializeComponent();
         }
-
-        ControladorReserva cr = new ControladorReserva();
-        ControladorMenu cm = new ControladorMenu();
-
-        private void InfoReserva_Load(object sender, EventArgs e)
+        ControladorUsuariosAdmin ciu = new ControladorUsuariosAdmin();
+        private void infoUsuariosBBDD_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'baseDatosViajesDataSetReservas.Reservas' Puede moverla o quitarla según sea necesario.
-            this.reservasTableAdapter.Fill(this.baseDatosViajesDataSetReservas.Reservas);
-
-            DataTable dtProyectos = cr.obtenerReservas();
+            // TODO: esta línea de código carga datos en la tabla 'baseDatosViajesDataSet1.Usuarios' Puede moverla o quitarla según sea necesario.
+            this.usuariosTableAdapter1.Fill(this.baseDatosViajesDataSet1.Usuarios);
+            DataTable dtProyectos = ciu.obtenerUsuarios();
 
             if (dtProyectos.Rows.Count > 0)
             {
@@ -46,14 +42,11 @@ namespace ProyectoViajes.Views
             }
         }
 
+        ControladorMenu cm = new ControladorMenu();
+
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cm.crearUsuario(this);
-        }
-
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.modificarReserva(this);
         }
 
         private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,14 +54,9 @@ namespace ProyectoViajes.Views
             cm.borrarUsuario(this);
         }
 
-        private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void principalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cm.modificarReserva(this);
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
+            cm.paginaPrincipal(this);
         }
     }
 }

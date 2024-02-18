@@ -51,7 +51,9 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -89,10 +91,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDatosViajesDataSet.Designer.cs">
+    <Compile Include="BaseDatosViajesDataSet1.cs">
+      <DependentUpon>BaseDatosViajesDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDatosViajesDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BaseDatosViajesDataSet.xsd</DependentUpon>
+      <DependentUpon>BaseDatosViajesDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDatosViajesDataSetReservas.cs">
+      <DependentUpon>BaseDatosViajesDataSetReservas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDatosViajesDataSetReservas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseDatosViajesDataSetReservas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControladorBBDD.cs" />
     <Compile Include="Controls\ControladorBorrar.cs" />
@@ -106,6 +119,7 @@
     <Compile Include="Controls\ControladorRegistro.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuarioActual.cs" />
     <Compile Include="Views\BorrarReservasAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +167,12 @@
     </Compile>
     <Compile Include="Views\InfoUsuarios.Designer.cs">
       <DependentUpon>InfoUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\infoUsuariosBBDD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\infoUsuariosBBDD.Designer.cs">
+      <DependentUpon>infoUsuariosBBDD.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\InicioSesion.cs">
       <SubType>Form</SubType>
@@ -231,6 +251,9 @@
     <EmbeddedResource Include="Views\InfoUsuarios.resx">
       <DependentUpon>InfoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\infoUsuariosBBDD.resx">
+      <DependentUpon>infoUsuariosBBDD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,16 +275,27 @@
     <EmbeddedResource Include="Views\ReservaViaje.resx">
       <DependentUpon>ReservaViaje.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="BaseDatosViajesDataSet.xsc">
-      <DependentUpon>BaseDatosViajesDataSet.xsd</DependentUpon>
+    <None Include="BaseDatosViajesDataSet1.xsc">
+      <DependentUpon>BaseDatosViajesDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="BaseDatosViajesDataSet.xsd">
+    <None Include="BaseDatosViajesDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BaseDatosViajesDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>BaseDatosViajesDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="BaseDatosViajesDataSet.xss">
-      <DependentUpon>BaseDatosViajesDataSet.xsd</DependentUpon>
+    <None Include="BaseDatosViajesDataSet1.xss">
+      <DependentUpon>BaseDatosViajesDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BaseDatosViajesDataSetReservas.xsc">
+      <DependentUpon>BaseDatosViajesDataSetReservas.xsd</DependentUpon>
+    </None>
+    <None Include="BaseDatosViajesDataSetReservas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BaseDatosViajesDataSetReservas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BaseDatosViajesDataSetReservas.xss">
+      <DependentUpon>BaseDatosViajesDataSetReservas.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

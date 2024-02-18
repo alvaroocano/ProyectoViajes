@@ -44,7 +44,7 @@ namespace ProyectoViajes.Views
         public bool isAdmin;
         private void InfoPuerta_Load(object sender, EventArgs e)
         {
-            cp.esconderMenu(menuStrip, isAdmin);
+            cp.esconderMenu(menuStrip);
         }
 
         private void InfoPuerta_FormClosed(object sender, FormClosedEventArgs e)

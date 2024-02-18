@@ -200,7 +200,7 @@ namespace ProyectoViajes.Controls
             // Cadena de conexión a la base de datos
             string connectionString = construirCadenaConexión();
             // Query para seleccionar todos los registros de la tabla Proyectos
-            string query = "SELECT * FROM Proyectos";
+            string query = "SELECT * FROM Usuarios";
 
             // Crear la conexión
             using (SqlConnection connection = new SqlConnection(connectionString))

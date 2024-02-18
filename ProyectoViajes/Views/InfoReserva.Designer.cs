@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFiltrar = new System.Windows.Forms.TextBox();
-            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.components = new System.ComponentModel.Container();
             this.titulo = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,37 +38,21 @@
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.baseDatosViajesDataSetReservas = new ProyectoViajes.BaseDatosViajesDataSetReservas();
+            this.reservasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reservasTableAdapter = new ProyectoViajes.BaseDatosViajesDataSetReservasTableAdapters.ReservasTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nroPersonasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIdaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaVueltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetReservas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservasBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(575, 471);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Filtrar";
-            // 
-            // txtFiltrar
-            // 
-            this.txtFiltrar.Location = new System.Drawing.Point(648, 475);
-            this.txtFiltrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtFiltrar.Name = "txtFiltrar";
-            this.txtFiltrar.Size = new System.Drawing.Size(132, 22);
-            this.txtFiltrar.TabIndex = 7;
-            // 
-            // groupBox
-            // 
-            this.groupBox.Location = new System.Drawing.Point(75, 129);
-            this.groupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox.Size = new System.Drawing.Size(917, 326);
-            this.groupBox.TabIndex = 9;
-            this.groupBox.TabStop = false;
             // 
             // titulo
             // 
@@ -83,19 +64,6 @@
             this.titulo.Size = new System.Drawing.Size(185, 42);
             this.titulo.TabIndex = 8;
             this.titulo.Text = "Reservas";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "id",
-            "nombre",
-            "fecha de nacimiento"});
-            this.comboBox1.Location = new System.Drawing.Point(224, 474);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 5;
             // 
             // menuStrip
             // 
@@ -116,27 +84,27 @@
             this.modificarToolStripMenuItem,
             this.borrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.crearToolStripMenuItem.Text = "Crear";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.borrarToolStripMenuItem.Text = "Eliminar";
             this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 
@@ -146,52 +114,129 @@
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.empleadosToolStripMenuItem.Text = "Reservas";
             // 
             // modificarToolStripMenuItem1
             // 
             this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(156, 26);
             this.modificarToolStripMenuItem1.Text = "Modificar";
             this.modificarToolStripMenuItem1.Click += new System.EventHandler(this.modificarToolStripMenuItem1_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.usuarioDataGridViewTextBoxColumn,
+            this.destinoDataGridViewTextBoxColumn,
+            this.nroPersonasDataGridViewTextBoxColumn,
+            this.fechaIdaDataGridViewTextBoxColumn,
+            this.fechaVueltaDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.reservasBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(75, 115);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(893, 387);
+            this.dataGridView1.TabIndex = 11;
+            // 
+            // baseDatosViajesDataSetReservas
+            // 
+            this.baseDatosViajesDataSetReservas.DataSetName = "BaseDatosViajesDataSetReservas";
+            this.baseDatosViajesDataSetReservas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reservasBindingSource
+            // 
+            this.reservasBindingSource.DataMember = "Reservas";
+            this.reservasBindingSource.DataSource = this.baseDatosViajesDataSetReservas;
+            // 
+            // reservasTableAdapter
+            // 
+            this.reservasTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // usuarioDataGridViewTextBoxColumn
+            // 
+            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "usuario";
+            this.usuarioDataGridViewTextBoxColumn.HeaderText = "usuario";
+            this.usuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
+            this.usuarioDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // destinoDataGridViewTextBoxColumn
+            // 
+            this.destinoDataGridViewTextBoxColumn.DataPropertyName = "destino";
+            this.destinoDataGridViewTextBoxColumn.HeaderText = "destino";
+            this.destinoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
+            this.destinoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nroPersonasDataGridViewTextBoxColumn
+            // 
+            this.nroPersonasDataGridViewTextBoxColumn.DataPropertyName = "nroPersonas";
+            this.nroPersonasDataGridViewTextBoxColumn.HeaderText = "nroPersonas";
+            this.nroPersonasDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nroPersonasDataGridViewTextBoxColumn.Name = "nroPersonasDataGridViewTextBoxColumn";
+            this.nroPersonasDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fechaIdaDataGridViewTextBoxColumn
+            // 
+            this.fechaIdaDataGridViewTextBoxColumn.DataPropertyName = "fechaIda";
+            this.fechaIdaDataGridViewTextBoxColumn.HeaderText = "fechaIda";
+            this.fechaIdaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fechaIdaDataGridViewTextBoxColumn.Name = "fechaIdaDataGridViewTextBoxColumn";
+            this.fechaIdaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fechaVueltaDataGridViewTextBoxColumn
+            // 
+            this.fechaVueltaDataGridViewTextBoxColumn.DataPropertyName = "fechaVuelta";
+            this.fechaVueltaDataGridViewTextBoxColumn.HeaderText = "fechaVuelta";
+            this.fechaVueltaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fechaVueltaDataGridViewTextBoxColumn.Name = "fechaVueltaDataGridViewTextBoxColumn";
+            this.fechaVueltaDataGridViewTextBoxColumn.Width = 125;
             // 
             // InfoReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFiltrar);
-            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.titulo);
-            this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InfoReserva";
             this.Text = "ModificarReserva";
             this.Load += new System.EventHandler(this.InfoReserva_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetReservas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFiltrar;
-        private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Label titulo;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem crearToolStripMenuItem;
@@ -200,5 +245,15 @@
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private BaseDatosViajesDataSetReservas baseDatosViajesDataSetReservas;
+        private System.Windows.Forms.BindingSource reservasBindingSource;
+        private BaseDatosViajesDataSetReservasTableAdapters.ReservasTableAdapter reservasTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn destinoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroPersonasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIdaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVueltaDataGridViewTextBoxColumn;
     }
 }

@@ -13,9 +13,8 @@ namespace ProyectoViajes.Controls
 
         public void infoUsuarios(Form form)
         {
-            InfoUsuarios iu = new InfoUsuarios();
+            infoUsuariosBBDD iu = new infoUsuariosBBDD();
             form.Hide();
-            form.Close();
             iu.ShowDialog();
         }
 
@@ -23,7 +22,6 @@ namespace ProyectoViajes.Controls
         {
             CrearUsuarioAdmin cua = new CrearUsuarioAdmin();
             form.Hide();
-            form.Close();
             cua.ShowDialog();
         }
 
@@ -31,19 +29,20 @@ namespace ProyectoViajes.Controls
         {
             BorrarUsuariosAdmin bua = new BorrarUsuariosAdmin();
             form.Hide();
-            form.Close();
             bua.ShowDialog();
         }
 
         public void correo(Form form)
         {
             FormularioCorreo fc = new FormularioCorreo();
+            form.Hide();
             fc.ShowDialog();
         }
 
         public void reserva(Form form)
         {
             ReservaViaje rv = new ReservaViaje();
+            form.Hide();
             rv.ShowDialog();
         }
 
@@ -51,7 +50,6 @@ namespace ProyectoViajes.Controls
         {
             InfoReserva mr = new InfoReserva();
             form.Hide();
-            form.Close();
             mr.ShowDialog();
         }
 
@@ -59,8 +57,14 @@ namespace ProyectoViajes.Controls
         {
             BorrarReservasAdmin mr = new BorrarReservasAdmin();
             form.Hide();
-            form.Close();
             mr.ShowDialog();
+        }
+
+        public void paginaPrincipal(Form form)
+        {
+            Principal principal = new Principal();
+            form.Hide();
+            principal.ShowDialog();
         }
 
     }
