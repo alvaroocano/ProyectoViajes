@@ -24,8 +24,10 @@ namespace ProyectoViajes.Views
 
         private void InfoReserva_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'baseDatosViajesDataSetReservas.Reservas' Puede moverla o quitarla según sea necesario.
-            this.reservasTableAdapter.Fill(this.baseDatosViajesDataSetReservas.Reservas);
+            // TODO: esta línea de código carga datos en la tabla 'baseDatosViajesDataSet.Reservas' Puede moverla o quitarla según sea necesario.
+            this.reservasTableAdapter1.Fill(this.baseDatosViajesDataSet.Reservas);
+            // TODO: esta línea de código carga datos en la tabla 'baseDatosViajesDataSet.Reservas' Puede moverla o quitarla según sea necesario.
+
 
             DataTable dtProyectos = cr.obtenerReservas();
 
@@ -35,7 +37,7 @@ namespace ProyectoViajes.Views
                 dataGridView1.DataSource = dtProyectos;
             }
             else
-            {
+            {this.reservasTableAdapter.Fill(this.baseDatosViajesDataSet.Reservas);
                 // No hay datos disponibles, muestra un mensaje informativo
                 Label lblMensaje = new Label();
                 lblMensaje.Text = "No hay datos disponibles.";

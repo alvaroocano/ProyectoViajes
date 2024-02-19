@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ProyectoViajes.BaseDatosViajesDataSet1TableAdapters;
 
 namespace ProyectoViajes.Views
 {
@@ -21,8 +20,9 @@ namespace ProyectoViajes.Views
         ControladorUsuariosAdmin ciu = new ControladorUsuariosAdmin();
         private void infoUsuariosBBDD_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'baseDatosViajesDataSet1.Usuarios' Puede moverla o quitarla según sea necesario.
-            this.usuariosTableAdapter1.Fill(this.baseDatosViajesDataSet1.Usuarios);
+            // TODO: esta línea de código carga datos en la tabla 'baseDatosViajesDataSet.Usuarios' Puede moverla o quitarla según sea necesario.
+            this.usuariosTableAdapter1.Fill(this.baseDatosViajesDataSet.Usuarios);
+            
             DataTable dtProyectos = ciu.obtenerUsuarios();
 
             if (dtProyectos.Rows.Count > 0)
@@ -57,6 +57,11 @@ namespace ProyectoViajes.Views
         private void principalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cm.paginaPrincipal(this);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ciu.eliminarUsuariosSeleccionados(dataGridView1);
         }
     }
 }

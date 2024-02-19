@@ -39,11 +39,11 @@
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.titulo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.baseDatosViajesDataSet1 = new ProyectoViajes.BaseDatosViajesDataSet1();
+            this.baseDatosViajesDataSet = new ProyectoViajes.BaseDatosViajesDataSet();
             this.baseDatosViajesDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,12 +139,12 @@
             // 
             // baseDatosViajesDataSet1
             // 
-            this.baseDatosViajesDataSet1.DataSetName = "BaseDatosViajesDataSet1";
-            this.baseDatosViajesDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.baseDatosViajesDataSet.DataSetName = "BaseDatosViajesDataSet1";
+            this.baseDatosViajesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // baseDatosViajesDataSet1BindingSource
             // 
-            this.baseDatosViajesDataSet1BindingSource.DataSource = this.baseDatosViajesDataSet1;
+            this.baseDatosViajesDataSet1BindingSource.DataSource = this.baseDatosViajesDataSet;
             this.baseDatosViajesDataSet1BindingSource.Position = 0;
             // 
             // InfoUsuarios
@@ -163,7 +163,7 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet1BindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,6 +183,6 @@
         private System.Windows.Forms.Label titulo;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource baseDatosViajesDataSet1BindingSource;
-        private BaseDatosViajesDataSet1 baseDatosViajesDataSet1;
+        private BaseDatosViajesDataSet baseDatosViajesDataSet;
     }
 }

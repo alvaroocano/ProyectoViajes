@@ -39,9 +39,10 @@
             this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.baseDatosViajesDataSetReservas = new ProyectoViajes.BaseDatosViajesDataSetReservas();
+            this.baseDatosViajesDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.baseDatosViajesDataSet = new ProyectoViajes.BaseDatosViajesDataSet();
             this.reservasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reservasTableAdapter = new ProyectoViajes.BaseDatosViajesDataSetReservasTableAdapters.ReservasTableAdapter();
+            this.reservasTableAdapter1 = new ProyectoViajes.BaseDatosViajesDataSetTableAdapters.ReservasTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +51,8 @@
             this.fechaVueltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetReservas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +86,7 @@
             this.modificarToolStripMenuItem,
             this.borrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // crearToolStripMenuItem
@@ -114,7 +116,7 @@
             this.modificarToolStripMenuItem1,
             this.eliminarToolStripMenuItem});
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.empleadosToolStripMenuItem.Text = "Reservas";
             // 
             // modificarToolStripMenuItem1
@@ -150,19 +152,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(893, 387);
             this.dataGridView1.TabIndex = 11;
             // 
-            // baseDatosViajesDataSetReservas
+            // baseDatosViajesDataSetBindingSource
             // 
-            this.baseDatosViajesDataSetReservas.DataSetName = "BaseDatosViajesDataSetReservas";
-            this.baseDatosViajesDataSetReservas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.baseDatosViajesDataSetBindingSource.DataSource = this.baseDatosViajesDataSet;
+            this.baseDatosViajesDataSetBindingSource.Position = 0;
+            // 
+            // baseDatosViajesDataSet
+            // 
+            this.baseDatosViajesDataSet.DataSetName = "BaseDatosViajesDataSet";
+            this.baseDatosViajesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reservasBindingSource
             // 
             this.reservasBindingSource.DataMember = "Reservas";
-            this.reservasBindingSource.DataSource = this.baseDatosViajesDataSetReservas;
+            this.reservasBindingSource.DataSource = this.baseDatosViajesDataSet;
             // 
-            // reservasTableAdapter
+            // reservasTableAdapter1
             // 
-            this.reservasTableAdapter.ClearBeforeFill = true;
+            this.reservasTableAdapter1.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -228,7 +235,8 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetReservas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baseDatosViajesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -246,9 +254,11 @@
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private BaseDatosViajesDataSetReservas baseDatosViajesDataSetReservas;
+        private System.Windows.Forms.BindingSource baseDatosViajesDataSetBindingSource;
+        private BaseDatosViajesDataSetTableAdapters.ReservasTableAdapter reservasTableAdapter;
+        private BaseDatosViajesDataSet baseDatosViajesDataSet;
         private System.Windows.Forms.BindingSource reservasBindingSource;
-        private BaseDatosViajesDataSetReservasTableAdapters.ReservasTableAdapter reservasTableAdapter;
+        private BaseDatosViajesDataSetTableAdapters.ReservasTableAdapter reservasTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinoDataGridViewTextBoxColumn;
