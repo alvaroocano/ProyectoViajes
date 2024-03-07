@@ -35,7 +35,8 @@ namespace ProyectoViajes.Views
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cr.realizarReserva(txtUsuario, selectDestino, nroPersonas, fechaIda, fechaVuelta, this);
+            cr.insertarReservas(txtUsuario, selectDestino, nroPersonas, fechaIda, fechaVuelta);
         }
+
     }
 }

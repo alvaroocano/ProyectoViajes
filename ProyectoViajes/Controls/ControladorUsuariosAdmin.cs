@@ -16,66 +16,44 @@ using System.Data;
 
 namespace ProyectoViajes.Controls
 {
-    internal class ControladorUsuariosAdmin
+    public class ControladorUsuariosAdmin
     {
         ControladorRegistro cr = new ControladorRegistro();
 
-        public void crearEtiqueta(int id, string user, string correo, string fechaNacimiento, int posicion, System.Windows.Forms.GroupBox g)
+        public void modificarUsuario(string nuevoNombre, string nuevoCorreo, DateTime nuevaFechaNacimiento, int idUsuario)
         {
-            Label GrupoLbl = new System.Windows.Forms.Label();
-            GrupoLbl.AutoSize = true;
-            GrupoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
-           System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)
-           (0)));
-            GrupoLbl.Location = new System.Drawing.Point(75, posicion);
-            GrupoLbl.Name = "lblEmpleado";
-            GrupoLbl.Size = new System.Drawing.Size(291, 20);
-            GrupoLbl.TabIndex = 1;
-            GrupoLbl.Text = id + " " + user + " " + correo + " " + fechaNacimiento.ToString();
-
-            Button botonEditar = new System.Windows.Forms.Button();
-            botonEditar.AutoSize = true;
-            botonEditar.Size = new System.Drawing.Size(82, 20);
-            botonEditar.Location = new System.Drawing.Point(GrupoLbl.Right + 20, posicion);
-            botonEditar.Text = "Modificar";
-
-            ModificarUsuario mus = new ModificarUsuario();
-            InfoUsuarios info = new InfoUsuarios();
-
-            mus.SetDatos(user, correo, fechaNacimiento, id);
-
-            botonEditar.Click += (sender, e) => MiBoton_Click(sender, e, user, correo, fechaNacimiento, id, info, mus);
-
-            g.Controls.Add(GrupoLbl);
-            g.Controls.Add(botonEditar);
-        }
-
-        public void crearUsuarios(List<Usuario> lista, System.Windows.Forms.GroupBox g)
-        {
-            int pos = 0;
-            for (int i = 0; i < lista.Count; i++)
+            try
             {
-                pos = pos + 30;
-                crearEtiqueta(lista[i].Id, lista[i].User, lista[i].Correo, lista[i].FechaNacimiento, pos, g);
-
+                string connectionString = construirCadenaConexión();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "UPDATE Usuarios SET [user] = @Nombre, correo = @Correo, fechaNacimiento = @FechaNacimiento WHERE Id = @Id";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Nombre", nuevoNombre);
+                        command.Parameters.AddWithValue("@Correo", nuevoCorreo);
+                        command.Parameters.AddWithValue("@FechaNacimiento", nuevaFechaNacimiento);
+                        command.Parameters.AddWithValue("@Id", idUsuario);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Usuario modificado correctamente.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo modificar el usuario.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al modificar usuario: {ex.Message}");
             }
         }
 
-        public void refrescar(Form form)
-        {
-            form.Refresh();
-        }
-
-        private void MiBoton_Click(object sender, EventArgs e, string user, string email, string fecha, int id, Form form1, Form form2)
-        {
-
-            form1.Hide();
-            form1.Close();
-            form2.ShowDialog();
-
-        }
-
-        public void modificarUsuario(TextBox nombre, TextBox correo, DateTimePicker fecha, int id, Form form1, Form form2)
+        public void validarUsuario(TextBox nombre, TextBox correo, DateTimePicker fecha, int id, Form form1, Form form2)
         {
 
             var usuarioAModificar = ListaDatosUsuarios.listaUsuarios.FirstOrDefault(x => x.Id.Equals(id));
@@ -128,17 +106,7 @@ namespace ProyectoViajes.Controls
 
                 if (todoBien)
                 {
-                    usuarioAModificar.User = nombre.Text;
-                    usuarioAModificar.Correo = correo.Text;
-                    usuarioAModificar.FechaNacimiento = fecha.Text;
-
-                    Usuario us = new Usuario(usuarioAModificar.Id, usuarioAModificar.User, usuarioAModificar.Pass, usuarioAModificar.Correo, usuarioAModificar.FechaNacimiento);
-
-                    int indiceUsuario = ListaDatosUsuarios.listaUsuarios.FindIndex(u => u.Id == usuarioAModificar.Id);
-                    ListaDatosUsuarios.listaUsuarios.RemoveAt(indiceUsuario);
-                    ListaDatosUsuarios.listaUsuarios.Insert(indiceUsuario, us);
-                    cr.escribirXML();
-                    MessageBox.Show("Todo OK ");
+                    modificarUsuario(nombre.Text, correo.Text, fechaBien, id);
                     form1.Hide();
                     form1.Close();
                     form2.ShowDialog();
@@ -147,43 +115,7 @@ namespace ProyectoViajes.Controls
             }
         }
 
-        public void filtrar(System.Windows.Forms.GroupBox g, System.Windows.Forms.TextBox t)
-        {
-            g.Controls.Clear();
-            string texto = t.Text.ToLower();
-
-            var listaFiltrada = ListaDatosUsuarios.listaUsuarios.Where(x => x.User.ToLower().StartsWith(texto)).ToList();
-            crearUsuarios(listaFiltrada, g);
-        }
-
-        public void ordenar(string ordenarPor, System.Windows.Forms.GroupBox g)
-        {
-            switch (ordenarPor)
-            {
-                case "id":
-                    g.Controls.Clear();
-                    var listaOrdenada = ListaDatosUsuarios.listaUsuarios.OrderBy(m => m.Id).ToList();
-
-                    crearUsuarios(listaOrdenada, g);
-                    break;
-
-                case "nombre":
-                    g.Controls.Clear();
-                    listaOrdenada = ListaDatosUsuarios.listaUsuarios.OrderBy(m => m.User).ToList();
-
-                    crearUsuarios(listaOrdenada, g);
-                    break;
-
-                case "fecha de nacimiento":
-                    g.Controls.Clear();
-                    listaOrdenada = ListaDatosUsuarios.listaUsuarios.OrderBy(m => m.FechaNacimiento).ToList();
-
-                    crearUsuarios(listaOrdenada, g);
-                    break;
-            }
-        }
-
-        private string construirCadenaConexión()
+        public string construirCadenaConexión()
         {
             // Directorio del archivo de base de datos relativo al directorio de ejecución
             string databaseFileName = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\BaseDatosViajes.mdf"));
@@ -193,12 +125,22 @@ namespace ProyectoViajes.Controls
             return connectionString;
         }
 
-        public DataTable obtenerUsuarios()
+        public string construirCadenaConexionPruebas()
+        {
+            // Directorio del archivo de base de datos relativo al directorio de ejecución
+            string databaseFileName = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\BaseDatosPruebas.mdf"));
+            // Cadena de conexión
+            string connectionString = $"Data Source=(LocalDB)\\MSSQLLocalDB; AttachDbFilename ={databaseFileName}; Integrated Security = True";
+            // Usar la cadena de conexión
+            return connectionString;
+        }
+
+        public DataTable obtenerUsuarios(string cadenaConexion)
         {
             DataTable dtUsuarios = new DataTable();
 
             // Cadena de conexión a la base de datos
-            string connectionString = construirCadenaConexión();
+            string connectionString = cadenaConexion;
             // Query para seleccionar todos los registros de la tabla Proyectos
             string query = "SELECT * FROM Usuarios";
 
@@ -271,6 +213,48 @@ namespace ProyectoViajes.Controls
             {
                 MessageBox.Show("No se han seleccionado usuarios para eliminar.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        
+
+        public Usuario ObtenerDetallesUsuarioPorID(int id)
+        {
+            string connectionString = construirCadenaConexión();
+
+            // Query SQL para obtener los detalles del usuario por su ID
+            string query = "SELECT * FROM Usuarios";
+
+            // Crea una instancia del objeto Usuario para almacenar los datos del usuario encontrado
+            Usuario usuario = null;
+
+            // Crea la conexión y ejecuta la consulta
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Agrega el parámetro para el ID del usuario
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    // Ejecuta la consulta y obtén el resultado
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Verifica si se encontró el usuario y lee los datos del usuario
+                        if (reader.Read())
+                        {
+                            // Crea una instancia de Usuario y asigna los datos del usuario
+                            usuario = new Usuario
+                            {
+                                id = id,
+                                user = reader["user"].ToString(),
+                                correo = reader["correo"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+
+            // Devuelve el objeto Usuario encontrado o null si no se encontró ningún usuario con ese ID
+            return usuario;
         }
 
     }

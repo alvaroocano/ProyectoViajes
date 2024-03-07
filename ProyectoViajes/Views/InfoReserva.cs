@@ -57,20 +57,44 @@ namespace ProyectoViajes.Views
         {
             cm.modificarReserva(this);
         }
-
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cm.modificarReserva(this);
         }
 
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void InfoReserva_FormClosing(object sender, FormClosingEventArgs e)
         {
-            cm.borrarReservas(this);
+            Principal p = new Principal();
+            p.Show();
+        }
+
+        private void principalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Principal p = new Principal();
+            this.Close();
+            p.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verifica si el clic se hizo en la columna de botones y no en el encabezado de la columna
+            if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "Modificar")
+            {
+                // Obtén el valor del ID del usuario de la fila en la que se hizo clic
+                int idReserva = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["idDataGridViewTextBoxColumn"].Value);
+                // Abre el formulario ModificarUsuario y pasa el ID del usuario
+                ModificarReserva formularioModificar = new ModificarReserva();
+                formularioModificar.SetDatos(idReserva);
+                formularioModificar.ShowDialog();
+                this.Hide();
+                this.Close();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cr.eliminarReservasSeleccionadas(dataGridView1);
+            this.Close();
         }
     }
 }

@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ProyectoViajes.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -97,29 +98,28 @@
       <DependentUpon>BaseDatosViajesDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Controls\ControladorBBDD.cs" />
-    <Compile Include="Controls\ControladorBorrar.cs" />
-    <Compile Include="Controls\ControladorBorrarReservas.cs" />
     <Compile Include="Controls\ControladorContacto.cs" />
+    <Compile Include="Controls\ControladorNaves.cs" />
     <Compile Include="Controls\ControladorReserva.cs" />
     <Compile Include="Controls\ControladorUsuariosAdmin.cs" />
     <Compile Include="Controls\ControladorInicioSesion.cs" />
     <Compile Include="Controls\ControladorMenu.cs" />
     <Compile Include="Controls\ControladorPrincipal.cs" />
     <Compile Include="Controls\ControladorRegistro.cs" />
+    <Compile Include="Models\NaveEspacial.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioActual.cs" />
-    <Compile Include="Views\BorrarReservasAdmin.cs">
+    <Compile Include="NavesDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NavesDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CrearNave.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\BorrarReservasAdmin.Designer.cs">
-      <DependentUpon>BorrarReservasAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\BorrarUsuariosAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\BorrarUsuariosAdmin.Designer.cs">
-      <DependentUpon>BorrarUsuariosAdmin.cs</DependentUpon>
+    <Compile Include="Views\CrearNave.Designer.cs">
+      <DependentUpon>CrearNave.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\CrearUsuarioAdmin.cs">
       <SubType>Form</SubType>
@@ -145,17 +145,17 @@
     <Compile Include="Views\InfoNamek.Designer.cs">
       <DependentUpon>InfoNamek.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\InfoNaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InfoNaves.Designer.cs">
+      <DependentUpon>InfoNaves.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\InfoPuerta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\InfoPuerta.Designer.cs">
       <DependentUpon>InfoPuerta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\InfoUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\InfoUsuarios.Designer.cs">
-      <DependentUpon>InfoUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\infoUsuariosBBDD.cs">
       <SubType>Form</SubType>
@@ -216,11 +216,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\BorrarReservasAdmin.resx">
-      <DependentUpon>BorrarReservasAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\BorrarUsuariosAdmin.resx">
-      <DependentUpon>BorrarUsuariosAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Views\CrearNave.resx">
+      <DependentUpon>CrearNave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CrearUsuarioAdmin.resx">
       <DependentUpon>CrearUsuarioAdmin.cs</DependentUpon>
@@ -234,11 +231,11 @@
     <EmbeddedResource Include="Views\InfoNamek.resx">
       <DependentUpon>InfoNamek.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\InfoNaves.resx">
+      <DependentUpon>InfoNaves.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\InfoPuerta.resx">
       <DependentUpon>InfoPuerta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\InfoUsuarios.resx">
-      <DependentUpon>InfoUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\infoUsuariosBBDD.resx">
       <DependentUpon>infoUsuariosBBDD.cs</DependentUpon>
@@ -274,6 +271,17 @@
     </None>
     <None Include="BaseDatosViajesDataSet.xss">
       <DependentUpon>BaseDatosViajesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NavesDataSet1.xsc">
+      <DependentUpon>NavesDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="NavesDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NavesDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NavesDataSet1.xss">
+      <DependentUpon>NavesDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

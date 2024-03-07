@@ -20,12 +20,12 @@ namespace ProyectoViajes.Views
 
         ControladorRegistro cr = new ControladorRegistro();
         ControladorMenu cm = new ControladorMenu(); 
-        InfoUsuarios iu = new InfoUsuarios();
 
         
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            cr.validarUsuario(txtUsuario, txtContrasena, txtCorreo, fechaNacimiento, edadError, this, iu);
+            infoUsuariosBBDD infoUsuariosBBDD = new infoUsuariosBBDD();
+            cr.validarUsuario(txtUsuario, txtContrasena, txtContrasena, fechaNacimiento, edadError, this, infoUsuariosBBDD);
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,19 +58,9 @@ namespace ProyectoViajes.Views
             cr.volverBlanco(txtCorreo);
         }
 
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cm.modificarReserva(this);
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
         }
     }
 }

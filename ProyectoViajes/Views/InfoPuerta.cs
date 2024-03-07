@@ -30,14 +30,9 @@ namespace ProyectoViajes.Views
             cm.infoUsuarios(this);
         }
 
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         private void linkReservaPuerta_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            cm.reserva(this);
+            cm.reserva();
         }
 
         ControladorPrincipal cp = new ControladorPrincipal();
@@ -58,11 +53,6 @@ namespace ProyectoViajes.Views
             cm.modificarReserva(this);
         }
 
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
-        }
-
         private void splitContainer1_Resize(object sender, EventArgs e)
         {
             
@@ -73,6 +63,11 @@ namespace ProyectoViajes.Views
         }
 
         private void textoDeAgostini_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

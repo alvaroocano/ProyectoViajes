@@ -29,19 +29,9 @@ namespace ProyectoViajes.Views
             cm.crearUsuario(this);
         }
 
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         private void linkReservaDeAgostini_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            cm.reserva(this);
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
+            cm.reserva();
         }
 
         ControladorPrincipal cp = new ControladorPrincipal();

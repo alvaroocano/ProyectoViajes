@@ -23,5 +23,11 @@ namespace ProyectoViajes.Views
         {
             cc.SimularEnvioCorreo(txtDestinatario.Text,txtAsunto.Text,txtCorreo.Text);
         }
+
+        private void FormularioCorreo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Principal p = new Principal();
+            p.Show();
+        }
     }
 }

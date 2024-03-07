@@ -8,10 +8,10 @@ namespace ProyectoViajes.Models
 {
     public class Usuario
     {
-        private int id;
-        private String user;
+        public int id;
+        public String user;
         private String pass;
-        private String correo;
+        public String correo;
         private String fechaNacimiento;
 
         public Usuario()

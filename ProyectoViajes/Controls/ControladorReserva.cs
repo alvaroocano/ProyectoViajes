@@ -28,7 +28,7 @@ namespace ProyectoViajes.Controls
             }
             catch (Exception e)
             {
-                // Manejar excepciones si es necesario
+                MessageBox.Show(e.Message);
             }
         }
 
@@ -66,59 +66,15 @@ namespace ProyectoViajes.Controls
         }
 
         // Realiza una nueva reserva y la agrega a la lista de reservas
-        public void realizarReserva(System.Windows.Forms.TextBox textBox, System.Windows.Forms.ComboBox comboBox, System.Windows.Forms.NumericUpDown numericUpDown, System.Windows.Forms.DateTimePicker dateTimePickerIda, System.Windows.Forms.DateTimePicker dateTimePickerVuelta, Form form)
+        public void validarReserva(int idReserva, string destino, int nroPersonas, DateTime fechaIda, DateTime fechaVuelta)
         {
-            if (dateTimePickerVuelta.Value <= dateTimePickerIda.Value)
+            if (fechaVuelta <= fechaIda)
             {
                 MessageBox.Show("La fecha de vuelta debe ser posterior a la fecha de ida.");
                 return;
             }
 
-            int id = ObtenerUltimoId();
-            string usuario = textBox.Text;
-            string destino = comboBox.Text;
-            int nroPersonas = (int)numericUpDown.Value;
-            DateTime fechaIda = dateTimePickerIda.Value;
-            DateTime fechaVuelta = dateTimePickerVuelta.Value;
-
-            string fechaIdaFormateada = fechaIda.ToString("yyyy-MM-dd");
-            string fechaVueltaFormateada = fechaVuelta.ToString("yyyy-MM-dd");
-
-            Reserva nuevaReserva = new Reserva(id, usuario, destino, nroPersonas, fechaIdaFormateada, fechaVueltaFormateada);
-            ListaDatosReservas.listaReservas.Add(nuevaReserva);
-
-            insertarReservas(textBox, comboBox, numericUpDown, dateTimePickerIda, dateTimePickerVuelta);
-            MessageBox.Show("Reserva Confirmada");
-            form.Close();
-        }
-
-        // Crea una etiqueta con la información de una reserva y un botón para editar
-        public void crearEtiqueta(int id, string user, string destino, int nroPersonas, string fechaIda, string fechaVuelta, int posicion, System.Windows.Forms.GroupBox g)
-        {
-            Label GrupoLbl = new System.Windows.Forms.Label();
-            GrupoLbl.AutoSize = true;
-            GrupoLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            GrupoLbl.Location = new System.Drawing.Point(75, posicion);
-            GrupoLbl.Name = "lblEmpleado";
-            GrupoLbl.Size = new System.Drawing.Size(291, 20);
-            GrupoLbl.TabIndex = 1;
-            GrupoLbl.Text = id + " " + user + " " + destino + " " + nroPersonas + " " + fechaIda + " " + fechaVuelta;
-
-            Button botonEditar = new System.Windows.Forms.Button();
-            botonEditar.AutoSize = true;
-            botonEditar.Size = new System.Drawing.Size(82, 20);
-            botonEditar.Location = new System.Drawing.Point(GrupoLbl.Right + 100, posicion);
-            botonEditar.Text = "Modificar";
-
-            ModificarReserva mr = new ModificarReserva();
-            InfoUsuarios info = new InfoUsuarios();
-
-            mr.SetDatos(id, destino, nroPersonas, fechaIda, fechaVuelta);
-
-            botonEditar.Click += (sender, e) => MiBoton_Click(sender, e, destino, nroPersonas, fechaIda, fechaVuelta, info, mr);
-
-            g.Controls.Add(GrupoLbl);
-            g.Controls.Add(botonEditar);
+            modificarReserva(idReserva, destino, nroPersonas, fechaIda, fechaVuelta);
         }
 
         // Lee la lista de reservas desde un archivo JSON y la devuelve
@@ -140,51 +96,40 @@ namespace ProyectoViajes.Controls
             return lista;
         }
 
-        // Crea las etiquetas de reservas en un formulario
-        public void crearReservas(System.Windows.Forms.GroupBox g)
-        {
-            List<Reserva> lista = leerJSON(ListaDatosReservas.listaReservas);
-            int pos = 0;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                pos = pos + 30;
-                crearEtiqueta(lista[i].Id, lista[i].Usuario, lista[i].Destino, lista[i].NroPersonas, lista[i].FechaIda, lista[i].FechaVuelta, pos, g);
-            }
-        }
-
-        // Manejador de eventos del botón de edición de reserva
-        private void MiBoton_Click(object sender, EventArgs e, string destino, int nroPersonas, string fechaIda, string fechaVuelta, Form form1, Form form2)
-        {
-            form1.Hide();
-            form1.Close();
-            form2.ShowDialog();
-        }
-
+        ControladorBBDD cub = new ControladorBBDD();
         // Modifica una reserva existente
-        public void modificarReserva(int id, string destino, NumericUpDown nroPersonas, DateTime fechaIda, DateTime fechaVuelta, Form form1, Form form2)
+        public void modificarReserva(int id, string destino, int nroPersonas, DateTime fechaIda, DateTime fechaVuelta)
         {
-            List<Reserva> listaReservas = leerJSON(ListaDatosReservas.listaReservas);
-
-            Reserva reservaExistente = listaReservas.FirstOrDefault(reserva => reserva.Id == id);
-
-            if (!EsFechaVueltaValida(fechaIda, fechaVuelta))
+            try
             {
-                MessageBox.Show("La fecha de vuelta debe ser mayor que la fecha de ida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                string connectionString = cub.construirCadenaConexión();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "UPDATE Reservas SET destino = @Destino, nroPersonas = @NroPersonas, fechaIda = @FechaIda, fechaVuelta = @FechaVuelta WHERE Id = @Id";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Destino", destino);
+                        command.Parameters.AddWithValue("@NroPersonas", nroPersonas);
+                        command.Parameters.AddWithValue("@FechaIda", fechaIda);
+                        command.Parameters.AddWithValue("@FechaVuelta", fechaVuelta);
+                        command.Parameters.AddWithValue("@Id", id);
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Reserva modificado correctamente.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo modificar el usuario.");
+                        }
+                    }
+                }
             }
-
-            reservaExistente.Destino = destino;
-            reservaExistente.NroPersonas = (int)nroPersonas.Value;
-            reservaExistente.FechaIda = fechaIda.ToString("yyyy-MM-dd");
-            reservaExistente.FechaVuelta = fechaVuelta.ToString("yyyy-MM-dd");
-            ListaDatosReservas.listaReservas.Add(reservaExistente);
-
-            MessageBox.Show("Reserva modificada con éxito");
-
-            escribirJSON();
-            form1.Hide();
-            form1.Close();
-            form2.ShowDialog();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al modificar usuario: {ex.Message}");
+            }
         }
 
         // Verifica si la fecha de vuelta es válida
@@ -247,7 +192,6 @@ namespace ProyectoViajes.Controls
 
 
         }
-
         public DataTable obtenerReservas()
         {
             DataTable dtProyectos = new DataTable();
@@ -271,6 +215,92 @@ namespace ProyectoViajes.Controls
             }
 
             return dtProyectos;
+        }
+
+        public Reserva ObtenerDetallesReservaPorID(int id)
+        {
+            string connectionString = cub.construirCadenaConexión();
+
+            // Query SQL para obtener los detalles de la reserva por su ID
+            string query = "SELECT * FROM Reservas WHERE Id = @ID";
+
+            // Crea una instancia del objeto Reserva para almacenar los datos de la reserva encontrada
+            Reserva reserva = null;
+
+            // Crea la conexión y ejecuta la consulta
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Agrega el parámetro para el ID de la reserva
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    // Ejecuta la consulta y obtén el resultado
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Verifica si se encontró la reserva y lee los datos de la misma
+                        if (reader.Read())
+                        {
+                            // Crea una instancia de Reserva y asigna los datos de la reserva
+                            reserva = new Reserva
+                            {
+                                Id = id,
+                                Usuario = reader["usuario"].ToString(),
+                                Destino = reader["destino"].ToString(),
+                                NroPersonas = Convert.ToInt32(reader["nroPersonas"]),
+                                FechaIda = reader["fechaIda"].ToString(),
+                                FechaVuelta = reader["fechaVuelta"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+
+            // Devuelve el objeto Reserva encontrado o null si no se encontró ninguna reserva con ese ID
+            return reserva;
+        }
+
+        public void eliminarReservasSeleccionadas(DataGridView dataGridView)
+        {
+            List<int> idsReservasAEliminar = new List<int>();
+
+            // Iterar sobre las filas del DataGridView
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                // Verificar si la fila está seleccionada y el checkbox de "Eliminar" está marcado
+                DataGridViewCheckBoxCell checkbox = row.Cells["Eliminar"] as DataGridViewCheckBoxCell;
+                if (checkbox != null && Convert.ToBoolean(checkbox.Value))
+                {
+                    int idReserva = Convert.ToInt32(row.Cells["idDataGridViewTextBoxColumn"].Value);
+                    idsReservasAEliminar.Add(idReserva); 
+                }
+            }
+
+            // Verificar si hay usuarios seleccionados para eliminar (que no sean "admin")
+            if (idsReservasAEliminar.Count > 0)
+            {
+                // Cadena de conexión a la base de datos
+                string connectionString = cub.construirCadenaConexión();
+
+                // Query para eliminar los usuarios seleccionados
+                string query = "DELETE FROM Reservas WHERE Id IN (" + string.Join(",", idsReservasAEliminar) + ")";
+
+                // Crear la conexión y ejecutar la consulta de eliminación
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        int registrosEliminados = command.ExecuteNonQuery();
+                        MessageBox.Show($"Se anularon correctamente {registrosEliminados} reservas.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se han seleccionado usuarios para eliminar.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoViajes.Controls;
+using ProyectoViajes.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProyectoViajes.Views
@@ -22,20 +23,35 @@ namespace ProyectoViajes.Views
         ControladorUsuariosAdmin ciu = new ControladorUsuariosAdmin();
         ControladorMenu cm = new ControladorMenu();
         ControladorRegistro cr = new ControladorRegistro();
-        InfoUsuarios info = new InfoUsuarios();
 
         private int idGlobal;
 
-        public void SetDatos(string user, string email, string fecha, int id)
+        public void SetDatos(int id)
         {
-            textBoxUser.Text = user.ToString();
-            textBoxEmail.Text = email.ToString();
-            idGlobal = id;
+            Usuario usuario = ciu.ObtenerDetallesUsuarioPorID(id);
+
+            // Verifica si se encontró el usuario
+            if (usuario != null)
+            {
+                // Asigna los datos del usuario a los controles del formulario
+                textBoxUser.Text = usuario.user;
+                textBoxEmail.Text = usuario.correo;
+                idGlobal = usuario.Id;
+            }
+            else
+            {
+                // Si no se encuentra el usuario, muestra un mensaje de error o realiza alguna otra acción
+                MessageBox.Show("No se encontró el usuario con el ID especificado.");
+                // Puedes cerrar el formulario o realizar alguna otra acción aquí
+                this.Close();
+            }
         }
+
+        infoUsuariosBBDD iub = new infoUsuariosBBDD();
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            ciu.modificarUsuario(textBoxUser, textBoxEmail, fechaNacimiento, idGlobal,this, info);
+            ciu.validarUsuario(textBoxUser, textBoxEmail, fechaNacimiento, idGlobal, this, iub);
         }
 
         private void textBoxUser_TextChanged(object sender, EventArgs e)
@@ -57,8 +73,7 @@ namespace ProyectoViajes.Views
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-            fechaNacimiento.MaxDate = DateTime.Now;
-            fechaNacimiento.Value = DateTime.Now;
+            
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,25 +85,19 @@ namespace ProyectoViajes.Views
         {
             cm.crearUsuario(this);
         }
-
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cm.modificarReserva(this);
         }
 
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
-        }
-
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ModificarUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

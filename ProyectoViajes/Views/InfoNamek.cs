@@ -22,7 +22,7 @@ namespace ProyectoViajes.Views
 
         private void linkReservaNamek_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            cm.reserva(this);
+            cm.reserva();
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,11 +35,6 @@ namespace ProyectoViajes.Views
             cm.crearUsuario(this);
         }
 
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         ControladorPrincipal cp = new ControladorPrincipal();
         public bool isAdmin;
         private void InfoNamek_Load(object sender, EventArgs e)
@@ -50,11 +45,6 @@ namespace ProyectoViajes.Views
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cm.modificarReserva(this);
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
         }
 
         private void InfoNamek_FormClosed(object sender, FormClosedEventArgs e)

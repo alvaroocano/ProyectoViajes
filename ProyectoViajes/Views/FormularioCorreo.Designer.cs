@@ -116,6 +116,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormularioCorreo";
             this.Text = "FormularioCorreo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormularioCorreo_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

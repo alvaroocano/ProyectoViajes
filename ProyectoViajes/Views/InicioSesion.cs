@@ -51,6 +51,7 @@ namespace ProyectoViajes
                 // Las credenciales son válidas, mostrar el formulario deseado
                 UsuarioActual.EstablecerNombreUsuario(usuario);
                 Principal pr = new Principal();
+                this.Hide();
                 pr.Show();
             }
             else

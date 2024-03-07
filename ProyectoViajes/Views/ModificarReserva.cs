@@ -1,4 +1,5 @@
 ﻿using ProyectoViajes.Controls;
+using ProyectoViajes.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,27 +23,31 @@ namespace ProyectoViajes.Views
         ControladorMenu cm = new ControladorMenu();
 
         int idReserva = 0;
-        public void SetDatos(int id,string destino, int nroPersonas, string fechaIda, string fechaVuelta)
+        public void SetDatos(int id)
         {
-            selectDestino.Text = destino.ToString();
-            numPersonas.Value = nroPersonas;
-            idReserva = id;
-            
-        }
+            Reserva reserva = cr.ObtenerDetallesReservaPorID(id);
 
-        private void ModificarReserva_Load(object sender, EventArgs e)
-        {
-            selectDestino.Select();
-            fechaIda.MinDate = DateTime.Now;
-            fechaIda.Value = DateTime.Now;
-            fechaVuelta.MinDate = DateTime.Now.AddDays(1);
-            fechaVuelta.Value = DateTime.Now.AddDays(1);
+            // Verifica si se encontró el usuario
+            if (reserva != null)
+            {
+                // Asigna los datos del usuario a los controles del formulario
+                selectDestino.SelectedItem = reserva.Destino;
+                numPersonas.Value = reserva.NroPersonas;
+                idReserva = reserva.Id;
+            }
+            else
+            {
+                // Si no se encuentra el usuario, muestra un mensaje de error o realiza alguna otra acción
+                MessageBox.Show("No se encontró el usuario con el ID especificado.");
+                // Puedes cerrar el formulario o realizar alguna otra acción aquí
+                this.Close();
+            }
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            InfoReserva ir = new InfoReserva();
-            cr.modificarReserva(idReserva, selectDestino.Text, numPersonas, fechaIda.Value, fechaVuelta.Value, this, ir);
+            cr.validarReserva(idReserva, selectDestino.SelectedItem.ToString(), Convert.ToInt16(numPersonas.Value), fechaIda.Value, fechaVuelta.Value);
         }
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,19 +60,9 @@ namespace ProyectoViajes.Views
             cm.modificarReserva(this);
         }
 
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         private void modificarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             cm.modificarReserva(this);
-        }
-
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
         }
     }
 }

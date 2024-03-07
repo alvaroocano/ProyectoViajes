@@ -68,11 +68,6 @@ namespace ProyectoViajes.Views
             cm.crearUsuario(this);
         }
 
-        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarUsuario(this);
-        }
-
         private void contactoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cm.correo(this);
@@ -98,14 +93,26 @@ namespace ProyectoViajes.Views
             cm.modificarReserva(this);
         }
 
-        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cm.borrarReservas(this);
-        }
-
         private void Principal_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void crearToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CrearNave cn = new CrearNave();
+            cn.ShowDialog();
+        }
+
+        private void modificarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            InfoNaves infN = new InfoNaves();
+            infN.ShowDialog();
         }
     }
 }
